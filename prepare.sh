@@ -25,6 +25,12 @@ cd ..
 cd ..
 cd ..
 
+# Shall we install brew?
+which -s brew
+if [[ $? != 0 ]] ; then
+    # Install Homebrew
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
 brew install openssl
 
 OPENSSL_INCLUDE_DIR=/usr/local/opt/openssl/include
