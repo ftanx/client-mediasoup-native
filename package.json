@@ -4,12 +4,15 @@
   "description": "Headless device for digitalstage",
   "main": "index.js",
   "scripts": {
-    "build": "NODE_ENV=production node-gyp rebuild && tsc",
+    "build-cpp": "cmake-js build",
+    "build-ts": "NODE_ENV=production tsc",
+    "build-standalone": "cmake-js -d standalone -o standalone/build",
+    "make": "npm run build-cpp && npm run build-ts",
     "start": "node dist/index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/versatica/mediasoup-broadcaster-demo.git"
+    "url": "git+https://github.com/digitalstage/nativeclient"
   },
   "keywords": [
     "mediasoup",
@@ -29,10 +32,13 @@
   "devDependencies": {
     "@types/node": "^14.0.5",
     "@types/node-notifier": "^6.0.1",
+    "bindings": "^1.5.0",
+    "node-addon-api": "^3.0.0",
     "nodemon": "^2.0.4",
     "process": "^0.11.10",
     "ts-node": "^8.10.1",
     "tslint": "^6.1.2",
     "typescript": "^3.9.3"
-  }
+  },
+  "gypfile": true
 }

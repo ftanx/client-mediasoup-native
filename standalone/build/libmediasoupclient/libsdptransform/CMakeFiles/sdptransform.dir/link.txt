@@ -1,0 +1,2 @@
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc libsdptransform.a  CMakeFiles/sdptransform.dir/src/grammar.cpp.o CMakeFiles/sdptransform.dir/src/parser.cpp.o CMakeFiles/sdptransform.dir/src/writer.cpp.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib libsdptransform.a
