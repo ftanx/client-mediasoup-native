@@ -13,14 +13,7 @@ add_subdirectory(deps/cpr "${CMAKE_CURRENT_BINARY_DIR}/cpr")
 
 file(GLOB SOURCE_FILES src_cpp/addon.cc
         src_cpp/Broadcaster.cpp
-        src_cpp/MediaStreamTrackFactory.cpp
-        src_cpp/fakegenerators/fake_audio_capture_module.cc
-        src_cpp/fakegenerators/fake_frame_source.cc
-        src_cpp/fakegenerators/frame_generator_capturer.cc
-        src_cpp/fakegenerators/frame_generator.cc
-        src_cpp/fakegenerators/test_video_capturer.cc
-        src_cpp/fakegenerators/frame_utils.cc
-        src_cpp/fakegenerators/task_queue_for_test.cc)
+        src_cpp/MediaStreamTrackFactory.cpp)
 add_library(${PROJECT_NAME} SHARED ${SOURCE_FILES} ${CMAKE_JS_SRC})
 
 set_source_files_properties(${SOURCE_FILES}

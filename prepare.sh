@@ -7,7 +7,6 @@ cd thirdparty
 git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
 export PATH=$PWD/depot_tools:$PATH
 
-
 ## Checkout webrtc
 mkdir webrtc-checkout
 cd webrtc-checkout
@@ -31,6 +30,8 @@ brew install openssl
 OPENSSL_INCLUDE_DIR=/usr/local/opt/openssl/include
 OPENSSL_ROOT_DIR=/usr/local/opt/openssl
 OPENSSL_LIBRARY_DIR=/usr/local/opt/openssl/lib
+
+npm install
 
 npm config set cmake_LIBWEBRTC_INCLUDE_PATH $LIBWEBRTC_INC
 npm config set cmake_LIBWEBRTC_BINARY_PATH $LIBWEBRTC_BIN

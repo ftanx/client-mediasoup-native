@@ -10,6 +10,7 @@ set(broadcaster_VERSION_MINOR 1)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+
 # Add some compile flags to our source files.
 set_source_files_properties(${SOURCE_FILES}
         PROPERTIES COMPILE_FLAGS -Wall -Wextra -Wpedantic)
@@ -57,8 +58,8 @@ add_subdirectory(../deps/libwebrtc "${CMAKE_CURRENT_BINARY_DIR}/libwebrtc")
 # Public (interface) headers from dependencies.
 target_include_directories(${PROJECT_NAME} PUBLIC
         ${CPR_INCLUDE_DIRS}
-        "${PROJECT_SOURCE_DIR}/../deps/libmediasoupclient/include"
-        "${PROJECT_SOURCE_DIR}/../deps/libwebrtc"
+        "../deps/libmediasoupclient/include"
+        "../deps/libwebrtc"
         )
 
 # Public (interface) dependencies.
