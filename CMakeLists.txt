@@ -11,7 +11,6 @@ include_directories(${CMAKE_JS_INC} PRIVATE ${PROJECT_SOURCE_DIR}/include)
 add_subdirectory(deps/libmediasoupclient "${CMAKE_CURRENT_BINARY_DIR}/libmediasoupclient")
 add_subdirectory(deps/cpr "${CMAKE_CURRENT_BINARY_DIR}/cpr")
 
-
 file(GLOB SOURCE_FILES src_cpp/addon.cc
         src_cpp/Broadcaster.cpp
         src_cpp/MediaStreamTrackFactory.cpp

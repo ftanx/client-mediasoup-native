@@ -9,11 +9,12 @@ npm config set cmake_LIBWEBRTC_BINARY_PATH $LIBWEBRTC_BINARY_PATH
 npm config set cmake_OPENSSL_INCLUDE_DIR $OPENSSL_INCLUDE_DIR
 npm config set cmake_OPENSSL_ROOT_DIR $OPENSSL_ROOT_DIR
 npm config set cmake_OPENSSL_LIBRARY_DIR $OPENSSL_LIBRARY_DIR
+npm config set cmake_CMAKE_USE_OPENSSL ON
 npm run compile
 
 #cmake . -Bbuild                                              \
-#  -DLIBWEBRTC_INCLUDE_PATH:PATH=$LIBWEBRTC_INC \
-#  -DLIBWEBRTC_BINARY_PATH:PATH=$LIBWEBRTC_BIN   \
+#  -DLIBWEBRTC_INCLUDE_PATH:PATH=Users/tobias/Developer/mediasoup/webrtc-checkout/src \
+#  -DLIBWEBRTC_BINARY_PATH:PATH=/Users/tobias/Developer/mediasoup/webrtc-checkout/src/out/mybuild-m79/obj   \
 #  -DOPENSSL_INCLUDE_DIR:PATH=/usr/local/Cellar/openssl@1.1/1.1.1g/include      \
 #  -DOPENSSL_ROOT_DIR:PATH=/usr/local/Cellar/openssl@1.1/1.1.1g \
 #  -DOPENSSL_LIBRARY_DIR:PATH=/usr/local/Cellar/openssl@1.1/1.1.1g/lib \

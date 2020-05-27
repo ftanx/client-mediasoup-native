@@ -7,3 +7,5 @@ node_modules
 package-lock.json
 dist
 standalone/build
+thirdparty
+.DS_Store

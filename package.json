@@ -4,6 +4,7 @@
   "description": "Headless device for digitalstage",
   "main": "index.js",
   "scripts": {
+    "prepare": "./prepare.sh",
     "build-cpp": "cmake-js build",
     "build-ts": "NODE_ENV=production tsc",
     "build-standalone": "cmake-js -d standalone -o standalone/build",
