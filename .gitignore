@@ -1,2 +1,7 @@
 /build
 /utils/node_modules/
+/CMakeFiles
+/cmake-build-debug
+.idea
+node_modules
+package-lock.json

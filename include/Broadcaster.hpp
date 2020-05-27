@@ -28,8 +28,7 @@ public:
 	void Start(
 	  const std::string& baseUrl,
 	  bool enableAudio,
-	  bool useSimulcast,
-	  const nlohmann::json& routerRtpCapabilities);
+	  bool useSimulcast);
 	void Stop();
 
 private:

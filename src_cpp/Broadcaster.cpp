@@ -1,6 +1,6 @@
 #include "Broadcaster.hpp"
-#include "mediasoupclient.hpp"
 #include "MediaStreamTrackFactory.hpp"
+#include "mediasoupclient.hpp"
 #include "json.hpp"
 #include <cpr/cpr.h>
 #include <cstdlib>
@@ -30,15 +30,16 @@ std::future<void> Broadcaster::OnConnect(
 	/* clang-format off */
 	json body =
 	{
+    { "transportId", this->transportId },
 		{ "dtlsParameters", dtlsParameters }
 	};
 	/* clang-format on */
 
 	auto r = cpr::PostAsync(
-	           cpr::Url{ this->baseUrl + "/broadcasters/" + this->id + "/transports/" +
-	                     this->transportId + "/connect" },
+	           cpr::Url{ this->baseUrl + "/transport/webrtc/connect" },
 	           cpr::Body{ body.dump() },
-	           cpr::Header{ { "Content-Type", "application/json" } })
+	           cpr::Header{ { "Content-Type", "application/json" } },
+	           cpr::VerifySsl{ false })
 	           .get();
 
 	if (r.status_code == 200)
@@ -81,7 +82,7 @@ std::future<std::string> Broadcaster::OnProduce(
   mediasoupclient::SendTransport* /*transport*/,
   const std::string& kind,
   json rtpParameters,
-  const json& /*appData*/)
+  const json& appData)
 {
 	std::cout << "[INFO] Broadcaster::OnProduce()" << std::endl;
 	// std::cout << "[INFO] rtpParameters: " << rtpParameters.dump(4) << std::endl;
@@ -91,16 +92,18 @@ std::future<std::string> Broadcaster::OnProduce(
 	/* clang-format off */
 	json body =
 	{
-		{ "kind",          kind          },
-		{ "rtpParameters", rtpParameters }
+    { "transportId",   this->transportId},
+    { "kind",          kind             },
+		{ "appData",       appData          },
+		{ "rtpParameters", rtpParameters    }
 	};
 	/* clang-format on */
 
 	auto r = cpr::PostAsync(
-	           cpr::Url{ this->baseUrl + "/broadcasters/" + this->id + "/transports/" +
-	                     this->transportId + "/producers" },
+	           cpr::Url{ this->baseUrl + "/producer/create/" },
 	           cpr::Body{ body.dump() },
-	           cpr::Header{ { "Content-Type", "application/json" } })
+	           cpr::Header{ { "Content-Type", "application/json" } },
+	           cpr::VerifySsl{ false })
 	           .get();
 
 	if (r.status_code == 200)
@@ -125,11 +128,29 @@ std::future<std::string> Broadcaster::OnProduce(
 }
 
 void Broadcaster::Start(
-  const std::string& baseUrl, bool enableAudio, bool useSimulcast, const json& routerRtpCapabilities)
+  const std::string& baseUrl, bool enableAudio, bool useSimulcast)
 {
 	std::cout << "[INFO] Broadcaster::Start()" << std::endl;
 
 	this->baseUrl = baseUrl;
+
+  std::cout << "[INFO] Get rtp capabilities from " << this->baseUrl + "/rtp-capabilities" << "..." << std::endl;
+
+  auto r = cpr::GetAsync(
+    cpr::Url{ this->baseUrl + "/rtp-capabilities" },
+    cpr::Header{ { "Content-Type", "application/json" } },
+    cpr::VerifySsl{ false })
+    .get();
+
+  if (r.status_code != 200)
+  {
+    std::cerr << "[ERROR] unable to get rtp capabilities"
+              << " [status code:" << r.status_code << ", body:\"" << r.text << "\"]" << std::endl;
+
+    return;
+  }
+
+  nlohmann::json routerRtpCapabilities = nlohmann::json::parse(r.text);
 
 	// Load the device.
 	this->device.Load(routerRtpCapabilities);
@@ -150,10 +171,12 @@ void Broadcaster::Start(
 	};
 	/* clang-format on */
 
+	/*
 	auto r = cpr::PostAsync(
 	           cpr::Url{ this->baseUrl + "/broadcasters" },
 	           cpr::Body{ body.dump() },
-	           cpr::Header{ { "Content-Type", "application/json" } })
+	           cpr::Header{ { "Content-Type", "application/json" } },
+	           cpr::VerifySsl{ false })
 	           .get();
 
 	if (r.status_code != 200)
@@ -162,22 +185,14 @@ void Broadcaster::Start(
 		          << " [status code:" << r.status_code << ", body:\"" << r.text << "\"]" << std::endl;
 
 		return;
-	}
+	}*/
 
 	std::cout << "[INFO] creating mediasoup WebRtcTransport..." << std::endl;
 
-	/* clang-format off */
-	body =
-	{
-		{ "type",    "webrtc" },
-		{ "rtcpMux", true     }
-	};
-	/* clang-format on */
-
-	r = cpr::PostAsync(
-	      cpr::Url{ this->baseUrl + "/broadcasters/" + this->id + "/transports" },
-	      cpr::Body{ body.dump() },
-	      cpr::Header{ { "Content-Type", "application/json" } })
+	r = cpr::GetAsync(
+        cpr::Url{ this->baseUrl + "/transport/webrtc/create" },
+	      cpr::Header{ { "Content-Type", "application/json" } },
+	      cpr::VerifySsl{ false })
 	      .get();
 
 	if (r.status_code != 200)
@@ -276,5 +291,6 @@ void Broadcaster::Stop()
 {
 	std::cout << "[INFO] Broadcaster::Stop()" << std::endl;
 
-	cpr::DeleteAsync(cpr::Url{ this->baseUrl + "/broadcasters/" + this->id }).get();
+	cpr::DeleteAsync(cpr::Url{ this->baseUrl + "/broadcasters/" + this->id }, cpr::VerifySsl{ false })
+	  .get();
 }

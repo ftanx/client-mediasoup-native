@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 3.8)
 
-project(broadcaster LANGUAGES CXX)
+project(digitalstage LANGUAGES CXX)
 
 # Set version number.
-set(broadcaster_VERSION_MAJOR 0)
-set(broadcaster_VERSION_MINOR 1)
+set(digitalstage_VERSION_MAJOR 0)
+set(digitalstage_VERSION_MINOR 1)
 
 # C++ standard requirements.
 set(CMAKE_CXX_STANDARD 14)
@@ -41,16 +41,16 @@ if(APPLE)
 endif(APPLE)
 
 target_sources(${PROJECT_NAME} PRIVATE
-	src/Broadcaster.cpp
-	src/main.cpp
-	src/MediaStreamTrackFactory.cpp
-	src/fakegenerators/fake_audio_capture_module.cc
-	src/fakegenerators/fake_frame_source.cc
-	src/fakegenerators/frame_generator_capturer.cc
-	src/fakegenerators/frame_generator.cc
-	src/fakegenerators/test_video_capturer.cc
-	src/fakegenerators/frame_utils.cc
-	src/fakegenerators/task_queue_for_test.cc
+	src_cpp/Broadcaster.cpp
+	src_cpp/main.cpp
+	src_cpp/MediaStreamTrackFactory.cpp
+	src_cpp/fakegenerators/fake_audio_capture_module.cc
+	src_cpp/fakegenerators/fake_frame_source.cc
+	src_cpp/fakegenerators/frame_generator_capturer.cc
+	src_cpp/fakegenerators/frame_generator.cc
+	src_cpp/fakegenerators/test_video_capturer.cc
+	src_cpp/fakegenerators/frame_utils.cc
+	src_cpp/fakegenerators/task_queue_for_test.cc
 )
 
 # Private (implementation) header files.

@@ -29,7 +29,7 @@ int main(int argc, char* argv[])
 
 	// Retrieve configuration from environment variables.
 	const char* envServerUrl    = std::getenv("SERVER_URL");
-	const char* envRoomId       = std::getenv("ROOM_ID");
+	const char* envRoomId       = std::getenv("STAGE_ID");
 	const char* envEnableAudio  = std::getenv("ENABLE_AUDIO");
 	const char* envUseSimulcast = std::getenv("USE_SIMULCAST");
 	const char* envWebrtcDebug  = std::getenv("WEBRTC_DEBUG");
@@ -49,7 +49,6 @@ int main(int argc, char* argv[])
 	}
 
 	std::string baseUrl = envServerUrl;
-	baseUrl.append("/rooms/").append(envRoomId);
 
 	bool enableAudio = true;
 
@@ -76,24 +75,9 @@ int main(int argc, char* argv[])
 	// Initilize mediasoupclient.
 	mediasoupclient::Initialize();
 
-	std::cout << "[INFO] welcome to mediasoup broadcaster app!\n" << std::endl;
+	std::cout << "[INFO] welcome to digitalstage native client!\n" << std::endl;
 
-	std::cout << "[INFO] verifying that room '" << envRoomId << "' exists..." << std::endl;
-	auto r = cpr::GetAsync(cpr::Url{ baseUrl }).get();
-
-	if (r.status_code != 200)
-	{
-		std::cerr << "[ERROR] unable to retrieve room info"
-		          << " [status code:" << r.status_code << ", body:\"" << r.text << "\"]" << std::endl;
-
-		return 1;
-	} else {
-		std::cout << "[INFO] found room" << envRoomId << std::endl;
-	}
-
-	auto response = nlohmann::json::parse(r.text);
-
-	broadcaster.Start(baseUrl, enableAudio, useSimulcast, response);
+	broadcaster.Start(baseUrl, enableAudio, useSimulcast);
 
 	std::cout << "[INFO] press Ctrl+C or Cmd+C to leave..."<< std::endl;
 
