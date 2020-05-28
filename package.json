@@ -2,9 +2,9 @@
   "name": "digitalstage-headless-client",
   "version": "0.0.1",
   "description": "Headless device for digitalstage",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "prepare": "./prepare.sh",
+    "dependencies": "./prepare.sh",
     "build-cpp": "cmake-js build",
     "build-ts": "NODE_ENV=production tsc",
     "build-standalone": "cmake-js -d standalone -o standalone/build",
@@ -34,7 +34,6 @@
   "devDependencies": {
     "@types/node": "^14.0.5",
     "@types/node-notifier": "^6.0.1",
-    "bindings": "^1.5.0",
     "node-addon-api": "^3.0.0",
     "nodemon": "^2.0.4",
     "process": "^0.11.10",
