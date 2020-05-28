@@ -17,7 +17,7 @@ git checkout -b m79 refs/remotes/branch-heads/m79
 gclient sync
 
 ## Build webrtc
-gn gen out/m79 --args='is_debug=false is_component_build=false is_clang=true rtc_include_tests=false rtc_use_h264=true rtc_enable_protobuf=false use_rtti=true mac_deployment_target="10.11" use_custom_libcxx=false'
+gn gen out/m79 --args='is_debug=false is_component_build=false is_clang=true rtc_include_tests=true rtc_use_h264=true rtc_enable_protobuf=false use_rtti=true mac_deployment_target="10.11" use_custom_libcxx=false'
 ninja -C out/m79 || exit
 LIBWEBRTC_INC=$PWD
 LIBWEBRTC_BIN=$PWD/out/m79/obj

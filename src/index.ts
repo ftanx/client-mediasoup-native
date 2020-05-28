@@ -1,11 +1,11 @@
 const addon = require('bindings')('digitalstage');
 
 
-const startSendingAudio = (url: string): Promise<string> => {
-    return new Promise<string>((resolve, reject) => {
-        addon.start(url, (error, result) => {
-            if (error)
-                reject(error);
+const startSendingAudio = (url: string): Promise<number> => {
+    return new Promise<number>((resolve, reject) => {
+        addon.start(url, (result) => {
+            if (!result)
+                reject(result);
             resolve(result);
         });
     })
@@ -14,4 +14,6 @@ const startSendingAudio = (url: string): Promise<string> => {
 console.log("Hello");
 
 startSendingAudio("https://thepanicure.de:3020")
-    .then(result => console.log(result));
+    .then(result => console.log("RESULT: " + result));
+
+console.log("Finished")

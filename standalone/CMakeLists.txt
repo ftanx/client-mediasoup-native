@@ -1,15 +1,14 @@
 cmake_minimum_required(VERSION 3.8)
 
-project(broadcaster LANGUAGES CXX)
+project(digitalstage LANGUAGES CXX)
 
 # Set version number.
-set(broadcaster_VERSION_MAJOR 0)
-set(broadcaster_VERSION_MINOR 1)
+set(digitalstage_VERSION_MAJOR 0)
+set(digitalstage_VERSION_MINOR 1)
 
 # C++ standard requirements.
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
 
 # Add some compile flags to our source files.
 set_source_files_properties(${SOURCE_FILES}
@@ -55,22 +54,21 @@ target_sources(${PROJECT_NAME} PRIVATE
         )
 
 # Private (implementation) header files.
-target_include_directories(${PROJECT_NAME} PRIVATE
-        "${PROJECT_SOURCE_DIR}/../include"
-        )
+target_include_directories(${PROJECT_NAME} PRIVATE ${PROJECT_SOURCE_DIR}/../include)
 
 # Source Dependencies.
-add_subdirectory(../deps/cpr "${CMAKE_CURRENT_BINARY_DIR}/cpr")
 add_subdirectory(../deps/libmediasoupclient "${CMAKE_CURRENT_BINARY_DIR}/libmediasoupclient")
+add_subdirectory(../deps/cpr "${CMAKE_CURRENT_BINARY_DIR}/cpr")
 
 # Public (interface) headers from dependencies.
 target_include_directories(${PROJECT_NAME} PUBLIC
+        "${PROJECT_SOURCE_DIR}/../deps/libmediasoupclient/include"
         ${CPR_INCLUDE_DIRS}
-        "../deps/libmediasoupclient/include"
         )
 
 # Public (interface) dependencies.
 target_link_libraries(${PROJECT_NAME} PUBLIC
-        ${CPR_LIBRARIES}
         mediasoupclient
+        ${CPR_LIBRARIES}
         )
+
