@@ -142,7 +142,8 @@ void Broadcaster::Start(
     cpr::VerifySsl{ false })
     .get();
 
-  if (r.status_code != 200)
+
+	if (r.status_code != 200)
   {
     std::cerr << "[ERROR] unable to get rtp capabilities"
               << " [status code:" << r.status_code << ", body:\"" << r.text << "\"]" << std::endl;
@@ -152,10 +153,11 @@ void Broadcaster::Start(
 
   nlohmann::json routerRtpCapabilities = nlohmann::json::parse(r.text);
 
-	// Load the device.
+  // Load the device.
+  std::cout << "GOOD" << std::endl;
 	this->device.Load(routerRtpCapabilities);
 
-	std::cout << "[INFO] creating Broadcaster..." << std::endl;
+  std::cout << "[INFO] creating Broadcaster..." << std::endl;
 
 	/* clang-format off */
 	json body =

@@ -7,9 +7,11 @@
 #include <string>
 #include <thread>
 
-std::thread nativeThread;
-bool running = false;
+//std::thread nativeThread;
+//bool running = false;
 static Broadcaster broadcaster;
+
+
 
 class StartAsyncWorker : public Napi::AsyncWorker
 {
@@ -22,21 +24,17 @@ public:
 protected:
 	void Execute() override
 	{
-		if (nativeThread != null)
+    mediasoupclient::Initialize();
+    broadcaster.Start(arg0, true, false);
+    result = "Hello" + arg0;
+		/*
+		if (!nativeThread.joinable())
 		{
-			nativeThread = std::thread([count] {
+			const std::string url = arg0;
+			nativeThread = std::thread([url] {
         running      = true;
-				mediasoupclient::Initialize();
-				broadcaster.Start(arg0, true, false);
-
-				while (running)
-				{
-          std::this_thread::sleep_for( std::chrono::seconds( 1 ) );
-				}
-				broadcaster.Stop();
 			});
-		}
-		result = "Hello" + arg0;
+		}*/
 	}
 
 	void OnOK() override
@@ -69,7 +67,8 @@ public:
 protected:
   void Execute() override
   {
-    running = false;
+    //running = false;
+    //nativeThread.join();
     result = "Hello";
   }
 
@@ -134,8 +133,7 @@ void StopAsyncCallback(const Napi::CallbackInfo& info)
 
 Napi::Object Init(Napi::Env env, Napi::Object exports)
 {
-	exports.Set(Napi::String::New(env, "start"), Napi::Function::New(env, StartAsyncCallback),
-              Napi::String::New(env, "stop"), Napi::Function::New(env, StopAsyncCallback));
+	exports.Set(Napi::String::New(env, "start"), Napi::Function::New(env, StartAsyncCallback));
 	return exports;
 }
 

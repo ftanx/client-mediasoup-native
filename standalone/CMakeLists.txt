@@ -48,7 +48,9 @@ target_sources(${PROJECT_NAME} PRIVATE
         )
 
 # Private (implementation) header files.
-target_include_directories(${PROJECT_NAME} PRIVATE ${PROJECT_SOURCE_DIR}/../include)
+target_include_directories(${PROJECT_NAME} PRIVATE
+        "${PROJECT_SOURCE_DIR}/../include"
+        )
 
 # Source Dependencies.
 add_subdirectory(../deps/cpr "${CMAKE_CURRENT_BINARY_DIR}/cpr")

@@ -10,6 +10,7 @@
     "build-standalone": "cmake-js -d standalone -o standalone/build",
     "make": "npm run build-cpp && npm run build-ts",
     "start": "node dist/index.js",
+    "dev-standalone": "SERVER_URL=\"https://localhost:3020\" STAGE_ID=NOTAVAILABLE standalone/build/broadcaster",
     "start-standalone": "SERVER_URL=\"https://thepanicure.de:3020\" STAGE_ID=NOTAVAILABLE standalone/build/broadcaster"
   },
   "repository": {
