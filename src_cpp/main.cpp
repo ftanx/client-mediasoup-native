@@ -43,7 +43,7 @@ int main(int argc, char* argv[])
 
 	if (envRoomId == nullptr)
 	{
-		std::cerr << "[ERROR] missing 'STAGE_ID' environment variable" << std::endl;
+		std::cerr << "[ERROR] missing 'ROOM_ID' environment variable" << std::endl;
 
 		return 1;
 	}

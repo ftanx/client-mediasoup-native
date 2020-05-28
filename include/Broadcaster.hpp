@@ -25,7 +25,10 @@ public:
 	void OnTransportClose(mediasoupclient::Producer* producer);
 
 public:
-	void Start(const std::string& baseUrl, bool enableAudio, bool useSimulcast);
+	void Start(
+	  const std::string& baseUrl,
+	  bool enableAudio,
+	  bool useSimulcast);
 	void Stop();
 
 private:

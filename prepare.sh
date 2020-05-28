@@ -13,14 +13,14 @@ cd webrtc-checkout || exit
 fetch --nohooks webrtc
 gclient sync
 cd src || exit
-git checkout -b m84 refs/remotes/branch-heads/4147
+git checkout -b m79 refs/remotes/branch-heads/m79
 gclient sync
 
 ## Build webrtc
-gn gen out/m84 --args='treat_warnings_as_errors=false is_debug=false is_component_build=false is_clang=true rtc_include_tests=true rtc_use_h264=true rtc_enable_protobuf=false use_rtti=true mac_deployment_target="10.11" use_custom_libcxx=false'
-ninja -C out/m84 || exit
+gn gen out/m79 --args='is_debug=false is_component_build=false is_clang=true rtc_include_tests=false rtc_use_h264=true rtc_enable_protobuf=false use_rtti=true mac_deployment_target="10.11" use_custom_libcxx=false'
+ninja -C out/m79 || exit
 LIBWEBRTC_INC=$PWD
-LIBWEBRTC_BIN=$PWD/out/m84/obj
+LIBWEBRTC_BIN=$PWD/out/m79/obj
 cd ..
 cd ..
 cd ..

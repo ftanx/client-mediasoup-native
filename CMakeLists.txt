@@ -75,13 +75,11 @@ target_include_directories(${PROJECT_NAME} PRIVATE ${PROJECT_SOURCE_DIR}/include
 # Source Dependencies.
 add_subdirectory(deps/cpr "${CMAKE_CURRENT_BINARY_DIR}/cpr")
 add_subdirectory(deps/libmediasoupclient "${CMAKE_CURRENT_BINARY_DIR}/libmediasoupclient")
-add_subdirectory(deps/libwebrtc "${CMAKE_CURRENT_BINARY_DIR}/libwebrtc")
 
 # Public (interface) headers from dependencies.
 target_include_directories(${PROJECT_NAME} PUBLIC
         ${CPR_INCLUDE_DIRS}
         "${PROJECT_SOURCE_DIR}/deps/libmediasoupclient/include"
-        "${PROJECT_SOURCE_DIR}/deps/libwebrtc"
         ${NODE_ADDON_API_DIR}
         )
 
@@ -92,7 +90,6 @@ target_link_libraries(${PROJECT_NAME} PUBLIC
         ${CPR_LIBRARIES}
         ${CMAKE_JS_LIB}
         mediasoupclient
-        webrtc_broadcaster
         )
 
 # define NPI_VERSION

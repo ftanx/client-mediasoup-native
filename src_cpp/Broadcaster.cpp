@@ -1,6 +1,6 @@
 #include "Broadcaster.hpp"
-#include "mediasoupclient.hpp"
 #include "MediaStreamTrackFactory.hpp"
+#include "mediasoupclient.hpp"
 #include "json.hpp"
 #include <cpr/cpr.h>
 #include <cstdlib>
@@ -142,8 +142,7 @@ void Broadcaster::Start(
     cpr::VerifySsl{ false })
     .get();
 
-
-	if (r.status_code != 200)
+  if (r.status_code != 200)
   {
     std::cerr << "[ERROR] unable to get rtp capabilities"
               << " [status code:" << r.status_code << ", body:\"" << r.text << "\"]" << std::endl;
@@ -153,11 +152,10 @@ void Broadcaster::Start(
 
   nlohmann::json routerRtpCapabilities = nlohmann::json::parse(r.text);
 
-  // Load the device.
-  std::cout << "GOOD" << std::endl;
+	// Load the device.
 	this->device.Load(routerRtpCapabilities);
 
-  std::cout << "[INFO] creating Broadcaster..." << std::endl;
+	std::cout << "[INFO] creating Broadcaster..." << std::endl;
 
 	/* clang-format off */
 	json body =
@@ -247,7 +245,7 @@ void Broadcaster::Start(
 
 	if (enableAudio && this->device.CanProduce("audio"))
 	{
-    auto audioTrack = createAudioTrack(std::to_string(rtc::CreateRandomId()));
+		auto audioTrack = createAudioTrack(std::to_string(rtc::CreateRandomId()));
 
 		/* clang-format off */
 		json codecOptions = {
