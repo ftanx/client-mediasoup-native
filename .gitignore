@@ -9,3 +9,4 @@ dist
 standalone/build
 thirdparty
 .DS_Store
+build.sh

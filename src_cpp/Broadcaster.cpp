@@ -1,6 +1,6 @@
 #include "Broadcaster.hpp"
-#include "MediaStreamTrackFactory.hpp"
 #include "mediasoupclient.hpp"
+#include "MediaStreamTrackFactory.hpp"
 #include "json.hpp"
 #include <cpr/cpr.h>
 #include <cstdlib>
@@ -245,7 +245,7 @@ void Broadcaster::Start(
 
 	if (enableAudio && this->device.CanProduce("audio"))
 	{
-		auto audioTrack = createAudioTrack(std::to_string(rtc::CreateRandomId()));
+    auto audioTrack = createAudioTrack(std::to_string(rtc::CreateRandomId()));
 
 		/* clang-format off */
 		json codecOptions = {
