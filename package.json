@@ -9,7 +9,8 @@
     "build-ts": "NODE_ENV=production tsc",
     "build-standalone": "cmake-js -d standalone -o standalone/build",
     "make": "npm run build-cpp && npm run build-ts",
-    "start": "node dist/index.js"
+    "start": "node dist/index.js",
+    "start-standalone": "SERVER_URL=\"https://thepanicure.de:3020\" STAGE_ID=NOTAVAILABLE standalone/build/broadcaster"
   },
   "repository": {
     "type": "git",
@@ -40,6 +41,5 @@
     "ts-node": "^8.10.1",
     "tslint": "^6.1.2",
     "typescript": "^3.9.3"
-  },
-  "gypfile": true
+  }
 }

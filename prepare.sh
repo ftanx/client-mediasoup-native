@@ -1,24 +1,24 @@
 #!/bin/sh
 
 mkdir -p thirdparty
-cd thirdparty
+cd thirdparty || exit
 
 ## Install depot tools
-git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
+#git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
 export PATH=$PWD/depot_tools:$PATH
 
 ## Checkout webrtc
-mkdir webrtc-checkout
-cd webrtc-checkout
+mkdir -p webrtc-checkout
+cd webrtc-checkout || exit
 fetch --nohooks webrtc
 gclient sync
-cd src
+cd src || exit
 git checkout -b m84 refs/remotes/branch-heads/4147
 gclient sync
 
 ## Build webrtc
-gn gen out/m84 --args='is_debug=false is_component_build=false is_clang=true rtc_include_tests=true rtc_use_h264=true rtc_enable_protobuf=false use_rtti=true mac_deployment_target="10.11" use_custom_libcxx=false'
-ninja -C out/m84
+gn gen out/m84 --args='treat_warnings_as_errors=false no-strict-overflow=true is_debug=false is_component_build=false is_clang=true rtc_include_tests=false rtc_use_h264=true rtc_enable_protobuf=false use_rtti=true mac_deployment_target="10.11" use_custom_libcxx=false'
+ninja -C out/m84 || exit
 LIBWEBRTC_INC=$PWD
 LIBWEBRTC_BIN=$PWD/out/m84/obj
 cd ..
@@ -46,6 +46,6 @@ npm config set cmake_OPENSSL_ROOT_DIR $OPENSSL_ROOT_DIR
 npm config set cmake_OPENSSL_LIBRARY_DIR $OPENSSL_LIBRARY_DIR
 npm config set cmake_CMAKE_USE_OPENSSL ON
 
-npm run make
+npm run make || exit
 
 npm run start
