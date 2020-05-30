@@ -18,6 +18,7 @@ add_library(${PROJECT_NAME} SHARED ${SOURCE_FILES} ${CMAKE_JS_SRC})
 
 target_sources(${PROJECT_NAME} PRIVATE
         src_cpp/Broadcaster.cpp
+        src_cpp/DigitalStageClient.cpp
         src_cpp/addon.cc
         src_cpp/MediaStreamTrackFactory.cpp
         src_cpp/fakegenerators/fake_audio_capture_module.cc

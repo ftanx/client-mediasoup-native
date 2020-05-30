@@ -22,11 +22,11 @@
 // frames are being faked. E.g. NetEq will not generate this large sample value
 // unless it has received an audio frame containing a sample of this value.
 // Even simpler buffers would likely just contain audio sample values of 0.
-static const int kHighSampleValue = 10000;
+static const int kHighSampleValue = 8;  // was 10000
 
 // Constants here are derived by running VoE using a real ADM.
 // The constants correspond to 10ms of mono audio at 44kHz.
-static const int kTimePerFrameMs = 10;
+static const int kTimePerFrameMs = 1;   // was 10
 static const uint8_t kNumberOfChannels = 1;
 static const int kSamplesPerSecond = 44000;
 static const int kTotalDelayMs = 0;

@@ -1,4 +1,4 @@
-#include "Broadcaster.hpp"
+#include "DigitalStageClient.hpp"
 #include "mediasoupclient.hpp"
 #include <chrono>
 #include <cpr/cpr.h>
@@ -11,7 +11,7 @@ using namespace Napi;
 
 std::thread nativeThread;
 ThreadSafeFunction tsfn;
-static Broadcaster broadcaster;
+static DigitalStageClient client;
 
 static bool isConnected = false;
 static bool shallReceiveAudio = false;
@@ -20,6 +20,9 @@ static bool isReceivingAudio = false;
 static bool shallStreamAudio = false;
 static bool shallStopStreamingAudio = false;
 static bool isStreamingAudio = false;
+static bool shallStreamVideo = false;
+static bool shallStopStreamingVideo = false;
+static bool isStreamingVideo = false;
 
 Value Connect(const CallbackInfo& info)
 {
@@ -55,19 +58,19 @@ Value Connect(const CallbackInfo& info)
     });
 
     nativeThread = std::thread([url] {
-        auto callback = [](Napi::Env env, Function jsCallback, bool* value) {
+        auto callback = [](Napi::Env env, Function jsCallback, std::string* value) {
             // Transform native data into JS data, passing it to the provided
             // `jsCallback` -- the TSFN's JavaScript function.
-            jsCallback.Call({ env.Null(), Boolean::New(env, *value) });
+
+            jsCallback.Call({ env.Null(), String::New(env, *value) });
 
             // We're finished with the data.
             delete value;
         };
-        //TODO: Get the result of the connection of the client class
-        bool* value = new bool( false );
 
         mediasoupclient::Initialize();
-        broadcaster.Start(url, value, false);
+        client.Start(url);
+        std::string* value = new std::string( "{\"event\":\"connected\",\"value\":true}" );
         napi_status status = tsfn.BlockingCall( value, callback );
         if ( status != napi_ok ) {
             return;
@@ -90,15 +93,37 @@ Value Connect(const CallbackInfo& info)
 
              if( shallStreamAudio ) {
                  std::cout << "Shall stream audio" << std::endl;
-                 isStreamingAudio = true;
                  shallStreamAudio = false;
+                 std::string producerId = client.ProduceAudio();
+                 if( producerId.length() > 0 ) {
+                    isStreamingAudio = true;
+                     std::string* value = new std::string( "{\"event\":\"audioProducerAdded\",\"value\":{\"producerId\":\"" + producerId + "\"}}" );
+                     napi_status status = tsfn.BlockingCall( value, callback );
+                 }
              } else if( shallStopStreamingAudio ) {
                  std::cout << "Shall stop streaming audio" << std::endl;
-                 isStreamingAudio = false;
                  shallStopStreamingAudio = false;
+                 client.StopProducingAudio();
+                isStreamingAudio = false;
              }
+
+             if( shallStreamVideo ) {
+                  std::cout << "Shall stream video" << std::endl;
+                  shallStreamVideo = false;
+                  std::string producerId = client.ProduceVideo(false);
+                  if( producerId.length() > 0 ) {
+                     isStreamingVideo = true;
+                      std::string* value = new std::string( "{\"event\":\"videoProducerAdded\",\"value\":{\"producerId\":\"" + producerId + "\"}}" );
+                      napi_status status = tsfn.BlockingCall( value, callback );
+                  }
+              } else if( shallStopStreamingVideo ) {
+                  std::cout << "Shall stop streaming video" << std::endl;
+                  shallStopStreamingVideo = false;
+                  client.StopProducingVideo();
+                 isStreamingVideo = false;
+              }
         }
-        broadcaster.Stop();
+        client.Stop();
 
         // Release the thread-safe function
         tsfn.Release();
@@ -137,9 +162,30 @@ Value StopStreamingAudio(const CallbackInfo& info)
 	return Boolean::New(env, false);
 }
 
+Value StartStreamingVideo(const CallbackInfo& info)
+{
+	Napi::Env env = info.Env();
+    if( !isStreamingVideo ) {
+        shallStreamVideo = true;
+        return Boolean::New(env, true);
+    }
+	return Boolean::New(env, false);
+}
+
+Value StopStreamingVideo(const CallbackInfo& info)
+{
+    Napi::Env env = info.Env();
+    if( isStreamingVideo ) {
+        shallStopStreamingVideo = true;
+        return Boolean::New(env, true);
+    }
+	return Boolean::New(env, false);
+}
+
 Value StartReceivingAudio(const CallbackInfo& info)
 {
     Napi::Env env = info.Env();
+    Napi::Function cb = info[0].As<Napi::Function>();
     if( !isReceivingAudio ) {
         shallReceiveAudio = true;
         return Boolean::New(env, true);
@@ -162,6 +208,8 @@ Napi::Object Init(Napi::Env env, Napi::Object exports)
     exports.Set("connect", Function::New(env, Connect));
 	exports.Set("startStreamingAudio", Function::New(env, StartStreamingAudio));
 	exports.Set("stopStreamingAudio", Function::New(env, StopStreamingAudio));
+	exports.Set("startStreamingVideo", Function::New(env, StartStreamingVideo));
+	exports.Set("stopStreamingVideo", Function::New(env, StopStreamingVideo));
 	exports.Set("startReceivingAudio", Function::New(env, StartReceivingAudio));
 	exports.Set("stopReceivingAudio", Function::New(env, StopReceivingAudio));
     exports.Set("disconnect", Function::New(env, Disconnect));
