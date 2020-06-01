@@ -21,14 +21,8 @@ target_sources(${PROJECT_NAME} PRIVATE
         src_cpp/DigitalStageClient.cpp
         src_cpp/addon.cc
         src_cpp/MediaStreamTrackFactory.cpp
-        src_cpp/RtAudioDeviceModule.cpp
-        src_cpp/fakegenerators/fake_audio_capture_module.cc
-        src_cpp/fakegenerators/fake_frame_source.cc
-        src_cpp/fakegenerators/frame_generator_capturer.cc
-        src_cpp/fakegenerators/frame_generator.cc
-        src_cpp/fakegenerators/test_video_capturer.cc
-        src_cpp/fakegenerators/frame_utils.cc
-        src_cpp/fakegenerators/task_queue_for_test.cc
+        src_cpp/RtAudioCaptureModule.cpp
+        src_cpp/audio_device_rtaudio.cc
         )
 
 # Extra libs required in order to use Apple media devices.
@@ -55,8 +49,9 @@ if(APPLE)
 endif(APPLE)
 
 # Source Dependencies.
-add_subdirectory(deps/libmediasoupclient "${CMAKE_CURRENT_BINARY_DIR}/libmediasoupclient")
 add_subdirectory(deps/cpr "${CMAKE_CURRENT_BINARY_DIR}/cpr")
+add_subdirectory(deps/libmediasoupclient "${CMAKE_CURRENT_BINARY_DIR}/libmediasoupclient")
+add_subdirectory(deps/libwebrtc "${CMAKE_CURRENT_BINARY_DIR}/libwebrtc")
 
 target_include_directories(${PROJECT_NAME}
         PRIVATE ${PROJECT_SOURCE_DIR}/include
@@ -64,7 +59,8 @@ target_include_directories(${PROJECT_NAME}
 
 target_include_directories(${PROJECT_NAME}
         PUBLIC ${CPR_INCLUDE_DIRS}
-        PUBLIC "${PROJECT_SOURCE_DIR}/deps/libmediasoupclient/include")
+        PUBLIC "${PROJECT_SOURCE_DIR}/deps/libmediasoupclient/include"
+        PUBLIC "${PROJECT_SOURCE_DIR}/deps/libwebrtc")
 
 # Include N-API wrappers
 execute_process(COMMAND node -p "require('node-addon-api').include"
@@ -78,6 +74,7 @@ target_include_directories(${PROJECT_NAME} PRIVATE ${NODE_ADDON_API_DIR})
 set_target_properties(${PROJECT_NAME} PROPERTIES PREFIX "" SUFFIX ".node")
 target_link_libraries(${PROJECT_NAME} PUBLIC
         mediasoupclient
+        webrtc_broadcaster
         ${CPR_LIBRARIES}
         ${CMAKE_JS_LIB}
         )

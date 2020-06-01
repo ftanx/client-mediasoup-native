@@ -34,7 +34,7 @@ class Thread;
 class FakeAudioCaptureModule : public webrtc::AudioDeviceModule,
                                public rtc::MessageHandler {
  public:
-  typedef uint8_t Sample;
+  typedef uint16_t Sample;
 
   // The value for the following constants have been derived by running VoE
   // using a real ADM. The constants correspond to 10ms of mono audio at 44kHz.

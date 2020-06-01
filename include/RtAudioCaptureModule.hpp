@@ -12,7 +12,7 @@ namespace rtc {
 class Thread;
 }  // namespace rtc
 
-class RTAudioDeviceModule : public webrtc::AudioDeviceModule,
+class RTAudioCaptureModule : public webrtc::AudioDeviceModule,
                                public rtc::MessageHandler {
 public:
   typedef uint8_t Sample;
@@ -22,12 +22,12 @@ public:
   static const size_t kNumberSamples = 440;
   static const size_t kNumberBytesPerSample = sizeof(Sample);
 
-  // Creates a RTAudioDeviceModule or returns NULL on failure.
-  static rtc::scoped_refptr<RTAudioDeviceModule> Create();
+  // Creates a RTAudioCaptureModule or returns NULL on failure.
+  static rtc::scoped_refptr<RTAudioCaptureModule> Create();
 
   // Returns the number of frames that have been successfully pulled by the
   // instance. Note that correctly detecting success can only be done if the
-  // pulled frame was generated/pushed from a RTAudioDeviceModule.
+  // pulled frame was generated/pushed from a RTAudioCaptureModule.
   int frames_received() const;
 
   int32_t ActiveAudioLayer(AudioLayer* audio_layer) const override;
@@ -130,15 +130,15 @@ protected:
   // The constructor is protected because the class needs to be created as a
   // reference counted object (for memory managment reasons). It could be
   // exposed in which case the burden of proper instantiation would be put on
-  // the creator of a RTAudioDeviceModule instance. To create an instance of
+  // the creator of a RTAudioCaptureModule instance. To create an instance of
   // this class use the Create(..) API.
-  RTAudioDeviceModule();
+	RTAudioCaptureModule();
   // The destructor is protected because it is reference counted and should not
   // be deleted directly.
-  virtual ~RTAudioDeviceModule();
+  virtual ~RTAudioCaptureModule();
 
 private:
-  // Initializes the state of the RTAudioDeviceModule. This API is called on
+  // Initializes the state of the RTAudioCaptureModule. This API is called on
   // creation by the Create() API.
   bool Initialize();
   // SetBuffer() sets all samples in send_buffer_ to |value|.
