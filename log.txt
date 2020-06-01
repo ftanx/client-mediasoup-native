@@ -1,0 +1,2108 @@
+[TRACE] mediasoupclient::Initialize()
+[DEBUG] mediasoupclient::Initialize() | mediasoupclient v3.0.8
+[INFO] welcome to digitalstage native client!
+
+[INFO] Broadcaster::Start()
+[INFO] Get rtp capabilities from https://thepanicure.de:3020/rtp-capabilities...
+[TRACE] Device::Load()
+[TRACE] ortc::validateRtpCapabilities()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] Handler::GetNativeRtpCapabilities()
+[TRACE] PeerConnection::PeerConnection()
+[TRACE] PeerConnection::AddTransceiver()
+[TRACE] PeerConnection::OnRenegotiationNeeded()
+[TRACE] PeerConnection::AddTransceiver()
+[TRACE] PeerConnection::CreateOffer()
+[TRACE] PeerConnection::GetFuture()
+[TRACE] PeerConnection::OnSuccess()
+[TRACE] Sdp::Utils::extractRtpCapabilities()
+[DEBUG] Device::Load() | got native RTP capabilities:
+{
+    "codecs": [
+        {
+            "channels": 1,
+            "clockRate": 8000,
+            "kind": "audio",
+            "mimeType": "audio/PCMU",
+            "parameters": {},
+            "preferredPayloadType": 0,
+            "rtcpFeedback": []
+        },
+        {
+            "channels": 1,
+            "clockRate": 8000,
+            "kind": "audio",
+            "mimeType": "audio/PCMA",
+            "parameters": {},
+            "preferredPayloadType": 8,
+            "rtcpFeedback": []
+        },
+        {
+            "channels": 1,
+            "clockRate": 8000,
+            "kind": "audio",
+            "mimeType": "audio/G722",
+            "parameters": {},
+            "preferredPayloadType": 9,
+            "rtcpFeedback": []
+        },
+        {
+            "channels": 1,
+            "clockRate": 8000,
+            "kind": "audio",
+            "mimeType": "audio/CN",
+            "parameters": {},
+            "preferredPayloadType": 13,
+            "rtcpFeedback": []
+        },
+        {
+            "clockRate": 90000,
+            "kind": "video",
+            "mimeType": "video/VP8",
+            "parameters": {},
+            "preferredPayloadType": 96,
+            "rtcpFeedback": [
+                {
+                    "type": "goog-remb"
+                },
+                {
+                    "type": "transport-cc"
+                },
+                {
+                    "parameter": "fir",
+                    "type": "ccm"
+                },
+                {
+                    "type": "nack"
+                },
+                {
+                    "parameter": "pli",
+                    "type": "nack"
+                }
+            ]
+        },
+        {
+            "clockRate": 90000,
+            "kind": "video",
+            "mimeType": "video/rtx",
+            "parameters": {
+                "apt": 96
+            },
+            "preferredPayloadType": 97,
+            "rtcpFeedback": []
+        },
+        {
+            "clockRate": 90000,
+            "kind": "video",
+            "mimeType": "video/VP9",
+            "parameters": {
+                "profile-id": "0"
+            },
+            "preferredPayloadType": 98,
+            "rtcpFeedback": [
+                {
+                    "type": "goog-remb"
+                },
+                {
+                    "type": "transport-cc"
+                },
+                {
+                    "parameter": "fir",
+                    "type": "ccm"
+                },
+                {
+                    "type": "nack"
+                },
+                {
+                    "parameter": "pli",
+                    "type": "nack"
+                }
+            ]
+        },
+        {
+            "clockRate": 90000,
+            "kind": "video",
+            "mimeType": "video/rtx",
+            "parameters": {
+                "apt": 98
+            },
+            "preferredPayloadType": 99,
+            "rtcpFeedback": []
+        },
+        {
+            "clockRate": 90000,
+            "kind": "video",
+            "mimeType": "video/VP9",
+            "parameters": {
+                "profile-id": "2"
+            },
+            "preferredPayloadType": 100,
+            "rtcpFeedback": [
+                {
+                    "type": "goog-remb"
+                },
+                {
+                    "type": "transport-cc"
+                },
+                {
+                    "parameter": "fir",
+                    "type": "ccm"
+                },
+                {
+                    "type": "nack"
+                },
+                {
+                    "parameter": "pli",
+                    "type": "nack"
+                }
+            ]
+        },
+        {
+            "clockRate": 90000,
+            "kind": "video",
+            "mimeType": "video/rtx",
+            "parameters": {
+                "apt": 100
+            },
+            "preferredPayloadType": 101,
+            "rtcpFeedback": []
+        },
+        {
+            "channels": 1,
+            "clockRate": 8000,
+            "kind": "audio",
+            "mimeType": "audio/ILBC",
+            "parameters": {},
+            "preferredPayloadType": 102,
+            "rtcpFeedback": []
+        },
+        {
+            "channels": 1,
+            "clockRate": 16000,
+            "kind": "audio",
+            "mimeType": "audio/ISAC",
+            "parameters": {},
+            "preferredPayloadType": 103,
+            "rtcpFeedback": []
+        },
+        {
+            "channels": 1,
+            "clockRate": 32000,
+            "kind": "audio",
+            "mimeType": "audio/ISAC",
+            "parameters": {},
+            "preferredPayloadType": 104,
+            "rtcpFeedback": []
+        },
+        {
+            "channels": 1,
+            "clockRate": 16000,
+            "kind": "audio",
+            "mimeType": "audio/CN",
+            "parameters": {},
+            "preferredPayloadType": 105,
+            "rtcpFeedback": []
+        },
+        {
+            "channels": 1,
+            "clockRate": 32000,
+            "kind": "audio",
+            "mimeType": "audio/CN",
+            "parameters": {},
+            "preferredPayloadType": 106,
+            "rtcpFeedback": []
+        },
+        {
+            "clockRate": 90000,
+            "kind": "video",
+            "mimeType": "video/rtx",
+            "parameters": {
+                "apt": 124
+            },
+            "preferredPayloadType": 107,
+            "rtcpFeedback": []
+        },
+        {
+            "clockRate": 90000,
+            "kind": "video",
+            "mimeType": "video/H264",
+            "parameters": {
+                "level-asymmetry-allowed": 1,
+                "packetization-mode": 0,
+                "profile-level-id": "42e01f"
+            },
+            "preferredPayloadType": 108,
+            "rtcpFeedback": [
+                {
+                    "type": "goog-remb"
+                },
+                {
+                    "type": "transport-cc"
+                },
+                {
+                    "parameter": "fir",
+                    "type": "ccm"
+                },
+                {
+                    "type": "nack"
+                },
+                {
+                    "parameter": "pli",
+                    "type": "nack"
+                }
+            ]
+        },
+        {
+            "clockRate": 90000,
+            "kind": "video",
+            "mimeType": "video/rtx",
+            "parameters": {
+                "apt": 108
+            },
+            "preferredPayloadType": 109,
+            "rtcpFeedback": []
+        },
+        {
+            "channels": 1,
+            "clockRate": 48000,
+            "kind": "audio",
+            "mimeType": "audio/telephone-event",
+            "parameters": {},
+            "preferredPayloadType": 110,
+            "rtcpFeedback": []
+        },
+        {
+            "channels": 2,
+            "clockRate": 48000,
+            "kind": "audio",
+            "mimeType": "audio/opus",
+            "parameters": {
+                "minptime": 10,
+                "useinbandfec": 1
+            },
+            "preferredPayloadType": 111,
+            "rtcpFeedback": [
+                {
+                    "type": "transport-cc"
+                }
+            ]
+        },
+        {
+            "channels": 1,
+            "clockRate": 32000,
+            "kind": "audio",
+            "mimeType": "audio/telephone-event",
+            "parameters": {},
+            "preferredPayloadType": 112,
+            "rtcpFeedback": []
+        },
+        {
+            "channels": 1,
+            "clockRate": 16000,
+            "kind": "audio",
+            "mimeType": "audio/telephone-event",
+            "parameters": {},
+            "preferredPayloadType": 113,
+            "rtcpFeedback": []
+        },
+        {
+            "clockRate": 90000,
+            "kind": "video",
+            "mimeType": "video/rtx",
+            "parameters": {
+                "apt": 123
+            },
+            "preferredPayloadType": 119,
+            "rtcpFeedback": []
+        },
+        {
+            "clockRate": 90000,
+            "kind": "video",
+            "mimeType": "video/rtx",
+            "parameters": {
+                "apt": 125
+            },
+            "preferredPayloadType": 120,
+            "rtcpFeedback": []
+        },
+        {
+            "clockRate": 90000,
+            "kind": "video",
+            "mimeType": "video/rtx",
+            "parameters": {
+                "apt": 127
+            },
+            "preferredPayloadType": 121,
+            "rtcpFeedback": []
+        },
+        {
+            "clockRate": 90000,
+            "kind": "video",
+            "mimeType": "video/ulpfec",
+            "parameters": {},
+            "preferredPayloadType": 122,
+            "rtcpFeedback": []
+        },
+        {
+            "clockRate": 90000,
+            "kind": "video",
+            "mimeType": "video/red",
+            "parameters": {},
+            "preferredPayloadType": 123,
+            "rtcpFeedback": []
+        },
+        {
+            "clockRate": 90000,
+            "kind": "video",
+            "mimeType": "video/H264",
+            "parameters": {
+                "level-asymmetry-allowed": 1,
+                "packetization-mode": 1,
+                "profile-level-id": "42e01f"
+            },
+            "preferredPayloadType": 124,
+            "rtcpFeedback": [
+                {
+                    "type": "goog-remb"
+                },
+                {
+                    "type": "transport-cc"
+                },
+                {
+                    "parameter": "fir",
+                    "type": "ccm"
+                },
+                {
+                    "type": "nack"
+                },
+                {
+                    "parameter": "pli",
+                    "type": "nack"
+                }
+            ]
+        },
+        {
+            "clockRate": 90000,
+            "kind": "video",
+            "mimeType": "video/H264",
+            "parameters": {
+                "level-asymmetry-allowed": 1,
+                "packetization-mode": 0,
+                "profile-level-id": "42001f"
+            },
+            "preferredPayloadType": 125,
+            "rtcpFeedback": [
+                {
+                    "type": "goog-remb"
+                },
+                {
+                    "type": "transport-cc"
+                },
+                {
+                    "parameter": "fir",
+                    "type": "ccm"
+                },
+                {
+                    "type": "nack"
+                },
+                {
+                    "parameter": "pli",
+                    "type": "nack"
+                }
+            ]
+        },
+        {
+            "channels": 1,
+            "clockRate": 8000,
+            "kind": "audio",
+            "mimeType": "audio/telephone-event",
+            "parameters": {},
+            "preferredPayloadType": 126,
+            "rtcpFeedback": []
+        },
+        {
+            "clockRate": 90000,
+            "kind": "video",
+            "mimeType": "video/H264",
+            "parameters": {
+                "level-asymmetry-allowed": 1,
+                "packetization-mode": 1,
+                "profile-level-id": "42001f"
+            },
+            "preferredPayloadType": 127,
+            "rtcpFeedback": [
+                {
+                    "type": "goog-remb"
+                },
+                {
+                    "type": "transport-cc"
+                },
+                {
+                    "parameter": "fir",
+                    "type": "ccm"
+                },
+                {
+                    "type": "nack"
+                },
+                {
+                    "parameter": "pli",
+                    "type": "nack"
+                }
+            ]
+        }
+    ],
+    "fecMechanisms": [],
+    "headerExtensions": [
+        {
+            "kind": "audio",
+            "preferredId": 1,
+            "uri": "urn:ietf:params:rtp-hdrext:ssrc-audio-level"
+        },
+        {
+            "kind": "audio",
+            "preferredId": 2,
+            "uri": "http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time"
+        },
+        {
+            "kind": "audio",
+            "preferredId": 3,
+            "uri": "http://www.ietf.org/id/draft-holmer-rmcat-transport-wide-cc-extensions-01"
+        },
+        {
+            "kind": "audio",
+            "preferredId": 4,
+            "uri": "urn:ietf:params:rtp-hdrext:sdes:mid"
+        },
+        {
+            "kind": "audio",
+            "preferredId": 5,
+            "uri": "urn:ietf:params:rtp-hdrext:sdes:rtp-stream-id"
+        },
+        {
+            "kind": "audio",
+            "preferredId": 6,
+            "uri": "urn:ietf:params:rtp-hdrext:sdes:repaired-rtp-stream-id"
+        },
+        {
+            "kind": "video",
+            "preferredId": 14,
+            "uri": "urn:ietf:params:rtp-hdrext:toffset"
+        },
+        {
+            "kind": "video",
+            "preferredId": 2,
+            "uri": "http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time"
+        },
+        {
+            "kind": "video",
+            "preferredId": 13,
+            "uri": "urn:3gpp:video-orientation"
+        },
+        {
+            "kind": "video",
+            "preferredId": 3,
+            "uri": "http://www.ietf.org/id/draft-holmer-rmcat-transport-wide-cc-extensions-01"
+        },
+        {
+            "kind": "video",
+            "preferredId": 12,
+            "uri": "http://www.webrtc.org/experiments/rtp-hdrext/playout-delay"
+        },
+        {
+            "kind": "video",
+            "preferredId": 11,
+            "uri": "http://www.webrtc.org/experiments/rtp-hdrext/video-content-type"
+        },
+        {
+            "kind": "video",
+            "preferredId": 7,
+            "uri": "http://www.webrtc.org/experiments/rtp-hdrext/video-timing"
+        },
+        {
+            "kind": "video",
+            "preferredId": 8,
+            "uri": "http://tools.ietf.org/html/draft-ietf-avtext-framemarking-07"
+        },
+        {
+            "kind": "video",
+            "preferredId": 9,
+            "uri": "http://www.webrtc.org/experiments/rtp-hdrext/color-space"
+        },
+        {
+            "kind": "video",
+            "preferredId": 4,
+            "uri": "urn:ietf:params:rtp-hdrext:sdes:mid"
+        },
+        {
+            "kind": "video",
+            "preferredId": 5,
+            "uri": "urn:ietf:params:rtp-hdrext:sdes:rtp-stream-id"
+        },
+        {
+            "kind": "video",
+            "preferredId": 6,
+            "uri": "urn:ietf:params:rtp-hdrext:sdes:repaired-rtp-stream-id"
+        }
+    ]
+}
+[TRACE] ortc::validateRtpCapabilities()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::getExtendedRtpCapabilities()
+[TRACE] ortc::validateRtpCapabilities()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpCapabilities()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::reduceRtcpFeedback()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::reduceRtcpFeedback()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::getVP9ProfileId()
+[TRACE] ortc::getVP9ProfileId()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::getVP9ProfileId()
+[TRACE] ortc::getVP9ProfileId()
+[TRACE] ortc::reduceRtcpFeedback()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::getH264PacketizationMode()
+[TRACE] ortc::getH264PacketizationMode()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::getH264PacketizationMode()
+[TRACE] ortc::getH264PacketizationMode()
+[TRACE] ortc::getH264LevelAssimetryAllowed()
+[TRACE] ortc::getH264ProfileLevelId()
+[TRACE] ortc::getH264LevelAssimetryAllowed()
+[TRACE] ortc::getH264ProfileLevelId()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::getH264PacketizationMode()
+[TRACE] ortc::getH264PacketizationMode()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::getH264PacketizationMode()
+[TRACE] ortc::getH264PacketizationMode()
+[TRACE] ortc::getH264LevelAssimetryAllowed()
+[TRACE] ortc::getH264ProfileLevelId()
+[TRACE] ortc::getH264LevelAssimetryAllowed()
+[TRACE] ortc::getH264ProfileLevelId()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::getH264PacketizationMode()
+[TRACE] ortc::getH264PacketizationMode()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::matchCodecs()
+[TRACE] ortc::getH264PacketizationMode()
+[TRACE] ortc::getH264PacketizationMode()
+[TRACE] ortc::getH264LevelAssimetryAllowed()
+[TRACE] ortc::getH264ProfileLevelId()
+[TRACE] ortc::getH264LevelAssimetryAllowed()
+[TRACE] ortc::getH264ProfileLevelId()
+[TRACE] ortc::reduceRtcpFeedback()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::isRtxCodec()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[TRACE] ortc::matchHeaderExtensions()
+[DEBUG] Device::Load() | got extended RTP capabilities:
+{
+    "codecs": [
+        {
+            "channels": 2,
+            "clockRate": 48000,
+            "kind": "audio",
+            "localParameters": {
+                "minptime": 10,
+                "useinbandfec": 1
+            },
+            "localPayloadType": 111,
+            "localRtxPayloadType": null,
+            "mimeType": "audio/opus",
+            "remoteParameters": {},
+            "remotePayloadType": 100,
+            "remoteRtxPayloadType": null,
+            "rtcpFeedback": [
+                {
+                    "parameter": "",
+                    "type": "transport-cc"
+                }
+            ]
+        },
+        {
+            "clockRate": 90000,
+            "kind": "video",
+            "localParameters": {},
+            "localPayloadType": 96,
+            "localRtxPayloadType": 97,
+            "mimeType": "video/VP8",
+            "remoteParameters": {
+                "x-google-start-bitrate": 1000
+            },
+            "remotePayloadType": 101,
+            "remoteRtxPayloadType": 102,
+            "rtcpFeedback": [
+                {
+                    "parameter": "",
+                    "type": "goog-remb"
+                },
+                {
+                    "parameter": "",
+                    "type": "transport-cc"
+                },
+                {
+                    "parameter": "fir",
+                    "type": "ccm"
+                },
+                {
+                    "parameter": "",
+                    "type": "nack"
+                },
+                {
+                    "parameter": "pli",
+                    "type": "nack"
+                }
+            ]
+        },
+        {
+            "clockRate": 90000,
+            "kind": "video",
+            "localParameters": {
+                "profile-id": "2"
+            },
+            "localPayloadType": 100,
+            "localRtxPayloadType": 101,
+            "mimeType": "video/VP9",
+            "remoteParameters": {
+                "profile-id": 2,
+                "x-google-start-bitrate": 1000
+            },
+            "remotePayloadType": 103,
+            "remoteRtxPayloadType": 104,
+            "rtcpFeedback": [
+                {
+                    "parameter": "",
+                    "type": "goog-remb"
+                },
+                {
+                    "parameter": "",
+                    "type": "transport-cc"
+                },
+                {
+                    "parameter": "fir",
+                    "type": "ccm"
+                },
+                {
+                    "parameter": "",
+                    "type": "nack"
+                },
+                {
+                    "parameter": "pli",
+                    "type": "nack"
+                }
+            ]
+        },
+        {
+            "clockRate": 90000,
+            "kind": "video",
+            "localParameters": {
+                "level-asymmetry-allowed": 1,
+                "packetization-mode": 1,
+                "profile-level-id": "42e01f"
+            },
+            "localPayloadType": 124,
+            "localRtxPayloadType": 107,
+            "mimeType": "video/H264",
+            "remoteParameters": {
+                "level-asymmetry-allowed": 1,
+                "packetization-mode": 1,
+                "profile-level-id": "42e01f",
+                "x-google-start-bitrate": 1000
+            },
+            "remotePayloadType": 107,
+            "remoteRtxPayloadType": 108,
+            "rtcpFeedback": [
+                {
+                    "parameter": "",
+                    "type": "goog-remb"
+                },
+                {
+                    "parameter": "",
+                    "type": "transport-cc"
+                },
+                {
+                    "parameter": "fir",
+                    "type": "ccm"
+                },
+                {
+                    "parameter": "",
+                    "type": "nack"
+                },
+                {
+                    "parameter": "pli",
+                    "type": "nack"
+                }
+            ]
+        }
+    ],
+    "headerExtensions": [
+        {
+            "direction": "sendrecv",
+            "encrypt": false,
+            "kind": "audio",
+            "recvId": 1,
+            "sendId": 4,
+            "uri": "urn:ietf:params:rtp-hdrext:sdes:mid"
+        },
+        {
+            "direction": "sendrecv",
+            "encrypt": false,
+            "kind": "video",
+            "recvId": 1,
+            "sendId": 4,
+            "uri": "urn:ietf:params:rtp-hdrext:sdes:mid"
+        },
+        {
+            "direction": "sendonly",
+            "encrypt": false,
+            "kind": "video",
+            "recvId": 2,
+            "sendId": 5,
+            "uri": "urn:ietf:params:rtp-hdrext:sdes:rtp-stream-id"
+        },
+        {
+            "direction": "sendonly",
+            "encrypt": false,
+            "kind": "video",
+            "recvId": 3,
+            "sendId": 6,
+            "uri": "urn:ietf:params:rtp-hdrext:sdes:repaired-rtp-stream-id"
+        },
+        {
+            "direction": "sendrecv",
+            "encrypt": false,
+            "kind": "audio",
+            "recvId": 4,
+            "sendId": 2,
+            "uri": "http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time"
+        },
+        {
+            "direction": "sendrecv",
+            "encrypt": false,
+            "kind": "video",
+            "recvId": 4,
+            "sendId": 2,
+            "uri": "http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time"
+        },
+        {
+            "direction": "sendonly",
+            "encrypt": false,
+            "kind": "audio",
+            "recvId": 5,
+            "sendId": 3,
+            "uri": "http://www.ietf.org/id/draft-holmer-rmcat-transport-wide-cc-extensions-01"
+        },
+        {
+            "direction": "sendrecv",
+            "encrypt": false,
+            "kind": "video",
+            "recvId": 5,
+            "sendId": 3,
+            "uri": "http://www.ietf.org/id/draft-holmer-rmcat-transport-wide-cc-extensions-01"
+        },
+        {
+            "direction": "sendrecv",
+            "encrypt": false,
+            "kind": "video",
+            "recvId": 6,
+            "sendId": 8,
+            "uri": "http://tools.ietf.org/html/draft-ietf-avtext-framemarking-07"
+        },
+        {
+            "direction": "sendrecv",
+            "encrypt": false,
+            "kind": "audio",
+            "recvId": 10,
+            "sendId": 1,
+            "uri": "urn:ietf:params:rtp-hdrext:ssrc-audio-level"
+        },
+        {
+            "direction": "sendrecv",
+            "encrypt": false,
+            "kind": "video",
+            "recvId": 11,
+            "sendId": 13,
+            "uri": "urn:3gpp:video-orientation"
+        },
+        {
+            "direction": "sendrecv",
+            "encrypt": false,
+            "kind": "video",
+            "recvId": 12,
+            "sendId": 14,
+            "uri": "urn:ietf:params:rtp-hdrext:toffset"
+        }
+    ]
+}
+[TRACE] ortc::canSend()
+[TRACE] ortc::canSend()
+[TRACE] ortc::getRecvRtpCapabilities()
+[DEBUG] Device::Load() | got receiving RTP capabilities:
+{
+    "codecs": [
+        {
+            "channels": 2,
+            "clockRate": 48000,
+            "kind": "audio",
+            "mimeType": "audio/opus",
+            "parameters": {
+                "minptime": 10,
+                "useinbandfec": 1
+            },
+            "preferredPayloadType": 100,
+            "rtcpFeedback": [
+                {
+                    "parameter": "",
+                    "type": "transport-cc"
+                }
+            ]
+        },
+        {
+            "clockRate": 90000,
+            "kind": "video",
+            "mimeType": "video/VP8",
+            "parameters": {},
+            "preferredPayloadType": 101,
+            "rtcpFeedback": [
+                {
+                    "parameter": "",
+                    "type": "goog-remb"
+                },
+                {
+                    "parameter": "",
+                    "type": "transport-cc"
+                },
+                {
+                    "parameter": "fir",
+                    "type": "ccm"
+                },
+                {
+                    "parameter": "",
+                    "type": "nack"
+                },
+                {
+                    "parameter": "pli",
+                    "type": "nack"
+                }
+            ]
+        },
+        {
+            "clockRate": 90000,
+            "kind": "video",
+            "mimeType": "video/rtx",
+            "parameters": {
+                "apt": 101
+            },
+            "preferredPayloadType": 102,
+            "rtcpFeedback": []
+        },
+        {
+            "clockRate": 90000,
+            "kind": "video",
+            "mimeType": "video/VP9",
+            "parameters": {
+                "profile-id": "2"
+            },
+            "preferredPayloadType": 103,
+            "rtcpFeedback": [
+                {
+                    "parameter": "",
+                    "type": "goog-remb"
+                },
+                {
+                    "parameter": "",
+                    "type": "transport-cc"
+                },
+                {
+                    "parameter": "fir",
+                    "type": "ccm"
+                },
+                {
+                    "parameter": "",
+                    "type": "nack"
+                },
+                {
+                    "parameter": "pli",
+                    "type": "nack"
+                }
+            ]
+        },
+        {
+            "clockRate": 90000,
+            "kind": "video",
+            "mimeType": "video/rtx",
+            "parameters": {
+                "apt": 103
+            },
+            "preferredPayloadType": 104,
+            "rtcpFeedback": []
+        },
+        {
+            "clockRate": 90000,
+            "kind": "video",
+            "mimeType": "video/H264",
+            "parameters": {
+                "level-asymmetry-allowed": 1,
+                "packetization-mode": 1,
+                "profile-level-id": "42e01f"
+            },
+            "preferredPayloadType": 107,
+            "rtcpFeedback": [
+                {
+                    "parameter": "",
+                    "type": "goog-remb"
+                },
+                {
+                    "parameter": "",
+                    "type": "transport-cc"
+                },
+                {
+                    "parameter": "fir",
+                    "type": "ccm"
+                },
+                {
+                    "parameter": "",
+                    "type": "nack"
+                },
+                {
+                    "parameter": "pli",
+                    "type": "nack"
+                }
+            ]
+        },
+        {
+            "clockRate": 90000,
+            "kind": "video",
+            "mimeType": "video/rtx",
+            "parameters": {
+                "apt": 107
+            },
+            "preferredPayloadType": 108,
+            "rtcpFeedback": []
+        }
+    ],
+    "headerExtensions": [
+        {
+            "direction": "sendrecv",
+            "kind": "audio",
+            "preferredEncrypt": false,
+            "preferredId": 1,
+            "uri": "urn:ietf:params:rtp-hdrext:sdes:mid"
+        },
+        {
+            "direction": "sendrecv",
+            "kind": "video",
+            "preferredEncrypt": false,
+            "preferredId": 1,
+            "uri": "urn:ietf:params:rtp-hdrext:sdes:mid"
+        },
+        {
+            "direction": "sendrecv",
+            "kind": "audio",
+            "preferredEncrypt": false,
+            "preferredId": 4,
+            "uri": "http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time"
+        },
+        {
+            "direction": "sendrecv",
+            "kind": "video",
+            "preferredEncrypt": false,
+            "preferredId": 4,
+            "uri": "http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time"
+        },
+        {
+            "direction": "sendrecv",
+            "kind": "video",
+            "preferredEncrypt": false,
+            "preferredId": 5,
+            "uri": "http://www.ietf.org/id/draft-holmer-rmcat-transport-wide-cc-extensions-01"
+        },
+        {
+            "direction": "sendrecv",
+            "kind": "video",
+            "preferredEncrypt": false,
+            "preferredId": 6,
+            "uri": "http://tools.ietf.org/html/draft-ietf-avtext-framemarking-07"
+        },
+        {
+            "direction": "sendrecv",
+            "kind": "audio",
+            "preferredEncrypt": false,
+            "preferredId": 10,
+            "uri": "urn:ietf:params:rtp-hdrext:ssrc-audio-level"
+        },
+        {
+            "direction": "sendrecv",
+            "kind": "video",
+            "preferredEncrypt": false,
+            "preferredId": 11,
+            "uri": "urn:3gpp:video-orientation"
+        },
+        {
+            "direction": "sendrecv",
+            "kind": "video",
+            "preferredEncrypt": false,
+            "preferredId": 12,
+            "uri": "urn:ietf:params:rtp-hdrext:toffset"
+        }
+    ]
+}
+[TRACE] ortc::validateRtpCapabilities()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtpCodecCapability()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] ortc::validateRtpHeaderExtension()
+[TRACE] Handler::GetNativeSctpCapabilities()
+[DEBUG] Device::Load() | got receiving SCTP capabilities:
+{
+    "numStreams": {
+        "MIS": 1024,
+        "OS": 1024
+    }
+}
+[TRACE] ortc::validateSctpCapabilities()
+[TRACE] ortc::validateNumSctpStreams()
+[DEBUG] Device::Load() | succeeded
+[INFO] creating Broadcaster...
+[INFO] creating mediasoup WebRtcTransport...
+[INFO] creating SendTransport...
+[TRACE] Device::CreateSendTransport()
+[TRACE] Device::CreateSendTransport()
+[TRACE] ortc::validateIceParameters()
+[TRACE] ortc::validateIceCandidates()
+[TRACE] ortc::validateIceCandidate()
+[TRACE] ortc::validateIceCandidate()
+[TRACE] ortc::validateDtlsParameters()
+[TRACE] ortc::validateDtlsFingerprint()
+[TRACE] ortc::validateDtlsFingerprint()
+[TRACE] ortc::validateDtlsFingerprint()
+[TRACE] ortc::validateDtlsFingerprint()
+[TRACE] ortc::validateDtlsFingerprint()
+[TRACE] Transport::Transport()
+[TRACE] Transport::SendTransport()
+[TRACE] ortc::getSendingRtpParameters()
+[TRACE] ortc::getSendingRtpParameters()
+[TRACE] ortc::getSendingRemoteRtpParameters()
+[TRACE] ortc::getSendingRemoteRtpParameters()
+[TRACE] Handler::Handler()
+[TRACE] PeerConnection::PeerConnection()
+[TRACE] Sdp::RemoteSdp::RemoteSdp()
+[TRACE] Handler::SendHandler()
+[TRACE] Transport::SetHandler()
+[TRACE] Device::CanProduce()
+[TRACE] Transport::Produce()
+[TRACE] ortc::validateProducerCodecOptions()
+[TRACE] Handler::Send()
+[DEBUG] Handler::Send() | [kind:audio, track->id():3656038638]
+[TRACE] Sdp::RemoteSdp::GetNextMediaSectionIdx()
+[TRACE] PeerConnection::AddTransceiver()
+[TRACE] PeerConnection::OnRenegotiationNeeded()
+[TRACE] PeerConnection::CreateOffer()
+[TRACE] PeerConnection::GetFuture()
+[TRACE] PeerConnection::OnSuccess()
+[TRACE] Handler::SetupTransport()
+[TRACE] Sdp::Utils::extractDtlsParameters()
+[TRACE] Sdp::RemoteSdp::UpdateDtlsRole()
+[TRACE] Transport::OnConnect()
+[INFO] Broadcaster::OnConnect()
+[DEBUG] Handler::Send() | calling pc->SetLocalDescription():
+v=0
+o=- 452660021143587959 2 IN IP4 127.0.0.1
+s=-
+t=0 0
+a=group:BUNDLE 0
+a=msid-semantic: WMS 0
+m=audio 9 UDP/TLS/RTP/SAVPF 111 103 104 9 102 0 8 106 105 13 110 112 113 126
+c=IN IP4 0.0.0.0
+a=rtcp:9 IN IP4 0.0.0.0
+a=ice-ufrag:V0UH
+a=ice-pwd:8Xjgf3XvpLgu9uBXnzi4KJPx
+a=ice-options:trickle
+a=fingerprint:sha-256 9E:B6:C7:B5:76:AD:B1:AE:B8:AB:7D:9B:EE:A1:E9:27:10:F4:77:7A:E9:D1:8B:00:E3:E5:F2:86:46:45:57:DE
+a=setup:actpass
+a=mid:0
+a=extmap:1 urn:ietf:params:rtp-hdrext:ssrc-audio-level
+a=extmap:2 http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time
+a=extmap:3 http://www.ietf.org/id/draft-holmer-rmcat-transport-wide-cc-extensions-01
+a=extmap:4 urn:ietf:params:rtp-hdrext:sdes:mid
+a=extmap:5 urn:ietf:params:rtp-hdrext:sdes:rtp-stream-id
+a=extmap:6 urn:ietf:params:rtp-hdrext:sdes:repaired-rtp-stream-id
+a=sendonly
+a=msid:0 3656038638
+a=rtcp-mux
+a=rtpmap:111 opus/48000/2
+a=rtcp-fb:111 transport-cc
+a=fmtp:111 minptime=10;useinbandfec=1
+a=rtpmap:103 ISAC/16000
+a=rtpmap:104 ISAC/32000
+a=rtpmap:9 G722/8000
+a=rtpmap:102 ILBC/8000
+a=rtpmap:0 PCMU/8000
+a=rtpmap:8 PCMA/8000
+a=rtpmap:106 CN/32000
+a=rtpmap:105 CN/16000
+a=rtpmap:13 CN/8000
+a=rtpmap:110 telephone-event/48000
+a=rtpmap:112 telephone-event/32000
+a=rtpmap:113 telephone-event/16000
+a=rtpmap:126 telephone-event/8000
+a=ssrc:3349115662 cname:nnkkGwtthLEB5Rr1
+a=ssrc:3349115662 msid:0 3656038638
+a=ssrc:3349115662 mslabel:0
+a=ssrc:3349115662 label:3656038638
+
+[TRACE] PeerConnection::SetLocalDescription()
+[TRACE] PeerConnection::GetFuture()
+[TRACE] PeerConnection::OnSignalingChange()
+[DEBUG] PeerConnection::OnSignalingChange() | [newState:have-local-offer]
+[TRACE] PeerConnection::OnSuccess()
+[TRACE] PeerConnection::OnIceGatheringChange()
+[DEBUG] PeerConnection::OnIceGatheringChange() | [newState:gathering]
+[TRACE] PeerConnection::GetLocalDescription()
+[TRACE] PeerConnection::OnIceCandidate()
+[DEBUG] PeerConnection::OnIceCandidate() | [candidate:candidate:4070941440 1 udp 2122262783 2a02:908:3a1:cfc0:451f:2a1e:8bf2:a367 65413 typ host generation 0 ufrag V0UH network-id 2 network-cost 50]
+[TRACE] PeerConnection::OnIceCandidate()
+[DEBUG] PeerConnection::OnIceCandidate() | [candidate:candidate:3455323002 1 udp 2122194687 192.168.178.20 60881 typ host generation 0 ufrag V0UH network-id 1 network-cost 50]
+[TRACE] Sdp::Utils::getCname()
+[TRACE] Sdp::RemoteSdp::Send()
+[TRACE] Sdp::MediaSection::MediaSection()
+[TRACE] Sdp::MediaSection::SetIceParameters()
+[TRACE] Sdp::MediaSection::AnswerMediaSection()
+[TRACE] Sdp::RemoteSdp::AddMediaSection()
+[TRACE] Sdp::MediaSection::GetMid()
+[TRACE] Sdp::MediaSection::GetMid()
+[TRACE] Sdp::MediaSection::GetObject()
+[TRACE] Sdp::RemoteSdp::RegenerateBundleMids()
+[TRACE] Sdp::MediaSection::IsClosed()
+[TRACE] Sdp::MediaSection::GetMid()
+[TRACE] Sdp::RemoteSdp::GetSdp()
+[DEBUG] Handler::Send() | calling pc->SetRemoteDescription():
+v=0
+o=libmediasoupclient 10000 1 IN IP4 0.0.0.0
+s=-
+t=0 0
+a=ice-lite
+a=fingerprint:sha-512 E9:FB:9A:09:71:51:46:CD:87:C4:C2:99:31:5C:8E:19:1A:E0:45:20:B9:39:33:39:50:6C:11:81:F7:69:B7:9F:79:24:1F:D9:53:40:69:1C:39:D0:32:E0:32:A5:FB:19:01:E6:00:6E:E2:7A:2E:B5:9D:B7:BF:64:46:3A:EC:3C
+a=msid-semantic: WMS *
+a=group:BUNDLE 0
+m=audio 7 UDP/TLS/RTP/SAVPF 111
+c=IN IP4 127.0.0.1
+a=rtpmap:111 opus/48000/2
+a=fmtp:111 stereo=1;usedtx=1
+a=rtcp-fb:111 transport-cc
+a=extmap:4 urn:ietf:params:rtp-hdrext:sdes:mid
+a=extmap:2 http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time
+a=extmap:3 http://www.ietf.org/id/draft-holmer-rmcat-transport-wide-cc-extensions-01
+a=extmap:1 urn:ietf:params:rtp-hdrext:ssrc-audio-level
+a=setup:active
+a=mid:0
+a=recvonly
+a=ice-ufrag:5btb67wh404fhofp
+a=ice-pwd:ywugz0pi9xpky18ybdn5odyv2qqh7id7
+a=candidate:udpcandidate 1 udp 1076558079 167.172.168.55 41531 typ host
+a=candidate:tcpcandidate 1 tcp 1076302079 167.172.168.55 47229 typ host tcptype passive
+a=end-of-candidates
+a=ice-options:renomination
+a=rtcp-mux
+a=rtcp-rsize
+
+[TRACE] PeerConnection::SetRemoteDescription()
+[TRACE] PeerConnection::GetFuture()
+[TRACE] PeerConnection::OnSignalingChange()
+[DEBUG] PeerConnection::OnSignalingChange() | [newState:stable]
+[TRACE] Handler::OnIceConnectionChange()
+[TRACE] Transport::OnConnectionStateChange()
+[INFO] Broadcaster::OnConnectionStateChange() [connectionState:checking]
+[TRACE] PeerConnection::OnSuccess()
+[TRACE] ortc::validateRtpParameters()
+[TRACE] ortc::validateRtpCodecParameters()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtpHeaderExtensionParameters()
+[TRACE] ortc::validateRtpHeaderExtensionParameters()
+[TRACE] ortc::validateRtpHeaderExtensionParameters()
+[TRACE] ortc::validateRtpHeaderExtensionParameters()
+[TRACE] ortc::validateRtpEncodingParameters()
+[TRACE] ortc::validateRtcpParameters()
+[INFO] Broadcaster::OnProduce()
+[TRACE] PeerConnection::OnIceGatheringChange()
+[DEBUG] PeerConnection::OnIceGatheringChange() | [newState:complete]
+[TRACE] Handler::OnIceConnectionChange()
+[TRACE] Transport::OnConnectionStateChange()
+[INFO] Broadcaster::OnConnectionStateChange() [connectionState:connected]
+[TRACE] Handler::OnIceConnectionChange()
+[TRACE] Transport::OnConnectionStateChange()
+[INFO] Broadcaster::OnConnectionStateChange() [connectionState:completed]
+[TRACE] Producer::Producer()
+[TRACE] Producer::GetId()
+[TRACE] Device::CanProduce()
+[INFO] getting frame generator
+[INFO] creating video track
+[TRACE] Transport::Produce()
+[TRACE] Handler::Send()
+[DEBUG] Handler::Send() | [kind:video, track->id():c5281352-39e5-4073-a924-0496d6c616a1]
+[TRACE] Sdp::RemoteSdp::GetNextMediaSectionIdx()
+[TRACE] Sdp::MediaSection::IsClosed()
+[TRACE] PeerConnection::AddTransceiver()
+[TRACE] PeerConnection::OnRenegotiationNeeded()
+[TRACE] PeerConnection::CreateOffer()
+[TRACE] PeerConnection::GetFuture()
+[TRACE] PeerConnection::OnSuccess()
+[DEBUG] Handler::Send() | calling pc->SetLocalDescription():
+v=0
+o=- 452660021143587959 3 IN IP4 127.0.0.1
+s=-
+t=0 0
+a=group:BUNDLE 0 1
+a=msid-semantic: WMS 0
+m=audio 60881 UDP/TLS/RTP/SAVPF 111 103 104 9 102 0 8 106 105 13 110 112 113 126
+c=IN IP4 192.168.178.20
+a=rtcp:9 IN IP4 0.0.0.0
+a=candidate:4070941440 1 udp 2122262783 2a02:908:3a1:cfc0:451f:2a1e:8bf2:a367 65413 typ host generation 0 network-id 2 network-cost 50
+a=candidate:3455323002 1 udp 2122194687 192.168.178.20 60881 typ host generation 0 network-id 1 network-cost 50
+a=ice-ufrag:V0UH
+a=ice-pwd:8Xjgf3XvpLgu9uBXnzi4KJPx
+a=ice-options:trickle
+a=fingerprint:sha-256 9E:B6:C7:B5:76:AD:B1:AE:B8:AB:7D:9B:EE:A1:E9:27:10:F4:77:7A:E9:D1:8B:00:E3:E5:F2:86:46:45:57:DE
+a=setup:actpass
+a=mid:0
+a=extmap:1 urn:ietf:params:rtp-hdrext:ssrc-audio-level
+a=extmap:2 http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time
+a=extmap:3 http://www.ietf.org/id/draft-holmer-rmcat-transport-wide-cc-extensions-01
+a=extmap:4 urn:ietf:params:rtp-hdrext:sdes:mid
+a=extmap:5 urn:ietf:params:rtp-hdrext:sdes:rtp-stream-id
+a=extmap:6 urn:ietf:params:rtp-hdrext:sdes:repaired-rtp-stream-id
+a=sendonly
+a=msid:0 3656038638
+a=rtcp-mux
+a=rtpmap:111 opus/48000/2
+a=rtcp-fb:111 transport-cc
+a=fmtp:111 minptime=10;useinbandfec=1
+a=rtpmap:103 ISAC/16000
+a=rtpmap:104 ISAC/32000
+a=rtpmap:9 G722/8000
+a=rtpmap:102 ILBC/8000
+a=rtpmap:0 PCMU/8000
+a=rtpmap:8 PCMA/8000
+a=rtpmap:106 CN/32000
+a=rtpmap:105 CN/16000
+a=rtpmap:13 CN/8000
+a=rtpmap:110 telephone-event/48000
+a=rtpmap:112 telephone-event/32000
+a=rtpmap:113 telephone-event/16000
+a=rtpmap:126 telephone-event/8000
+a=ssrc:3349115662 cname:nnkkGwtthLEB5Rr1
+a=ssrc:3349115662 msid:0 3656038638
+a=ssrc:3349115662 mslabel:0
+a=ssrc:3349115662 label:3656038638
+m=video 9 UDP/TLS/RTP/SAVPF 96 97 98 99 100 101 127 121 125 120 124 107 108 109 123 119 122
+c=IN IP4 0.0.0.0
+a=rtcp:9 IN IP4 0.0.0.0
+a=ice-ufrag:V0UH
+a=ice-pwd:8Xjgf3XvpLgu9uBXnzi4KJPx
+a=ice-options:trickle
+a=fingerprint:sha-256 9E:B6:C7:B5:76:AD:B1:AE:B8:AB:7D:9B:EE:A1:E9:27:10:F4:77:7A:E9:D1:8B:00:E3:E5:F2:86:46:45:57:DE
+a=setup:actpass
+a=mid:1
+a=extmap:14 urn:ietf:params:rtp-hdrext:toffset
+a=extmap:2 http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time
+a=extmap:13 urn:3gpp:video-orientation
+a=extmap:3 http://www.ietf.org/id/draft-holmer-rmcat-transport-wide-cc-extensions-01
+a=extmap:12 http://www.webrtc.org/experiments/rtp-hdrext/playout-delay
+a=extmap:11 http://www.webrtc.org/experiments/rtp-hdrext/video-content-type
+a=extmap:7 http://www.webrtc.org/experiments/rtp-hdrext/video-timing
+a=extmap:8 http://tools.ietf.org/html/draft-ietf-avtext-framemarking-07
+a=extmap:9 http://www.webrtc.org/experiments/rtp-hdrext/color-space
+a=extmap:4 urn:ietf:params:rtp-hdrext:sdes:mid
+a=extmap:5 urn:ietf:params:rtp-hdrext:sdes:rtp-stream-id
+a=extmap:6 urn:ietf:params:rtp-hdrext:sdes:repaired-rtp-stream-id
+a=sendonly
+a=msid:0 c5281352-39e5-4073-a924-0496d6c616a1
+a=rtcp-mux
+a=rtcp-rsize
+a=rtpmap:96 VP8/90000
+a=rtcp-fb:96 goog-remb
+a=rtcp-fb:96 transport-cc
+a=rtcp-fb:96 ccm fir
+a=rtcp-fb:96 nack
+a=rtcp-fb:96 nack pli
+a=rtpmap:97 rtx/90000
+a=fmtp:97 apt=96
+a=rtpmap:98 VP9/90000
+a=rtcp-fb:98 goog-remb
+a=rtcp-fb:98 transport-cc
+a=rtcp-fb:98 ccm fir
+a=rtcp-fb:98 nack
+a=rtcp-fb:98 nack pli
+a=fmtp:98 profile-id=0
+a=rtpmap:99 rtx/90000
+a=fmtp:99 apt=98
+a=rtpmap:100 VP9/90000
+a=rtcp-fb:100 goog-remb
+a=rtcp-fb:100 transport-cc
+a=rtcp-fb:100 ccm fir
+a=rtcp-fb:100 nack
+a=rtcp-fb:100 nack pli
+a=fmtp:100 profile-id=2
+a=rtpmap:101 rtx/90000
+a=fmtp:101 apt=100
+a=rtpmap:127 H264/90000
+a=rtcp-fb:127 goog-remb
+a=rtcp-fb:127 transport-cc
+a=rtcp-fb:127 ccm fir
+a=rtcp-fb:127 nack
+a=rtcp-fb:127 nack pli
+a=fmtp:127 level-asymmetry-allowed=1;packetization-mode=1;profile-level-id=42001f
+a=rtpmap:121 rtx/90000
+a=fmtp:121 apt=127
+a=rtpmap:125 H264/90000
+a=rtcp-fb:125 goog-remb
+a=rtcp-fb:125 transport-cc
+a=rtcp-fb:125 ccm fir
+a=rtcp-fb:125 nack
+a=rtcp-fb:125 nack pli
+a=fmtp:125 level-asymmetry-allowed=1;packetization-mode=0;profile-level-id=42001f
+a=rtpmap:120 rtx/90000
+a=fmtp:120 apt=125
+a=rtpmap:124 H264/90000
+a=rtcp-fb:124 goog-remb
+a=rtcp-fb:124 transport-cc
+a=rtcp-fb:124 ccm fir
+a=rtcp-fb:124 nack
+a=rtcp-fb:124 nack pli
+a=fmtp:124 level-asymmetry-allowed=1;packetization-mode=1;profile-level-id=42e01f
+a=rtpmap:107 rtx/90000
+a=fmtp:107 apt=124
+a=rtpmap:108 H264/90000
+a=rtcp-fb:108 goog-remb
+a=rtcp-fb:108 transport-cc
+a=rtcp-fb:108 ccm fir
+a=rtcp-fb:108 nack
+a=rtcp-fb:108 nack pli
+a=fmtp:108 level-asymmetry-allowed=1;packetization-mode=0;profile-level-id=42e01f
+a=rtpmap:109 rtx/90000
+a=fmtp:109 apt=108
+a=rtpmap:123 red/90000
+a=rtpmap:119 rtx/90000
+a=fmtp:119 apt=123
+a=rtpmap:122 ulpfec/90000
+a=rid:r0 send
+a=rid:r1 send
+a=rid:r2 send
+a=simulcast:send r0;r1;r2
+
+[TRACE] PeerConnection::SetLocalDescription()
+[TRACE] PeerConnection::GetFuture()
+[TRACE] PeerConnection::OnSignalingChange()
+[DEBUG] PeerConnection::OnSignalingChange() | [newState:have-local-offer]
+[TRACE] Handler::OnIceConnectionChange()
+[TRACE] Transport::OnConnectionStateChange()
+[INFO] Broadcaster::OnConnectionStateChange() [connectionState:disconnected]
+[TRACE] PeerConnection::OnIceGatheringChange()
+[DEBUG] PeerConnection::OnIceGatheringChange() | [newState:gathering]
+[TRACE] PeerConnection::OnSuccess()
+[TRACE] PeerConnection::OnIceCandidate()
+[DEBUG] PeerConnection::OnIceCandidate() | [candidate:candidate:4070941440 1 udp 2122262783 2a02:908:3a1:cfc0:451f:2a1e:8bf2:a367 60882 typ host generation 0 ufrag V0UH network-id 2 network-cost 50]
+[TRACE] PeerConnection::OnIceCandidate()
+[DEBUG] PeerConnection::OnIceCandidate() | [candidate:candidate:3455323002 1 udp 2122194687 192.168.178.20 51894 typ host generation 0 ufrag V0UH network-id 1 network-cost 50]
+[TRACE] PeerConnection::GetLocalDescription()
+[TRACE] Sdp::Utils::getCname()
+[TRACE] Handler::fillJsonRtpEncodingParameters()
+[TRACE] Handler::fillJsonRtpEncodingParameters()
+[TRACE] Handler::fillJsonRtpEncodingParameters()
+[TRACE] Sdp::RemoteSdp::Send()
+[TRACE] Sdp::MediaSection::MediaSection()
+[TRACE] Sdp::MediaSection::SetIceParameters()
+[TRACE] Sdp::MediaSection::AnswerMediaSection()
+[TRACE] Sdp::RemoteSdp::AddMediaSection()
+[TRACE] Sdp::MediaSection::GetMid()
+[TRACE] Sdp::MediaSection::GetObject()
+[TRACE] Sdp::RemoteSdp::RegenerateBundleMids()
+[TRACE] Sdp::MediaSection::IsClosed()
+[TRACE] Sdp::MediaSection::GetMid()
+[TRACE] Sdp::MediaSection::IsClosed()
+[TRACE] Sdp::MediaSection::GetMid()
+[TRACE] Sdp::RemoteSdp::GetSdp()
+[DEBUG] Handler::Send() | calling pc->SetRemoteDescription():
+v=0
+o=libmediasoupclient 10000 2 IN IP4 0.0.0.0
+s=-
+t=0 0
+a=ice-lite
+a=fingerprint:sha-512 E9:FB:9A:09:71:51:46:CD:87:C4:C2:99:31:5C:8E:19:1A:E0:45:20:B9:39:33:39:50:6C:11:81:F7:69:B7:9F:79:24:1F:D9:53:40:69:1C:39:D0:32:E0:32:A5:FB:19:01:E6:00:6E:E2:7A:2E:B5:9D:B7:BF:64:46:3A:EC:3C
+a=msid-semantic: WMS *
+a=group:BUNDLE 0 1
+m=audio 7 UDP/TLS/RTP/SAVPF 111
+c=IN IP4 127.0.0.1
+a=rtpmap:111 opus/48000/2
+a=fmtp:111 stereo=1;usedtx=1
+a=rtcp-fb:111 transport-cc
+a=extmap:4 urn:ietf:params:rtp-hdrext:sdes:mid
+a=extmap:2 http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time
+a=extmap:3 http://www.ietf.org/id/draft-holmer-rmcat-transport-wide-cc-extensions-01
+a=extmap:1 urn:ietf:params:rtp-hdrext:ssrc-audio-level
+a=setup:active
+a=mid:0
+a=recvonly
+a=ice-ufrag:5btb67wh404fhofp
+a=ice-pwd:ywugz0pi9xpky18ybdn5odyv2qqh7id7
+a=candidate:udpcandidate 1 udp 1076558079 167.172.168.55 41531 typ host
+a=candidate:tcpcandidate 1 tcp 1076302079 167.172.168.55 47229 typ host tcptype passive
+a=end-of-candidates
+a=ice-options:renomination
+a=rtcp-mux
+a=rtcp-rsize
+m=video 7 UDP/TLS/RTP/SAVPF 96 97
+c=IN IP4 127.0.0.1
+a=rtpmap:96 VP8/90000
+a=rtpmap:97 rtx/90000
+a=fmtp:96 x-google-start-bitrate=1000
+a=fmtp:97 apt=96
+a=rtcp-fb:96 transport-cc
+a=rtcp-fb:96 ccm fir
+a=rtcp-fb:96 nack
+a=rtcp-fb:96 nack pli
+a=extmap:4 urn:ietf:params:rtp-hdrext:sdes:mid
+a=extmap:5 urn:ietf:params:rtp-hdrext:sdes:rtp-stream-id
+a=extmap:6 urn:ietf:params:rtp-hdrext:sdes:repaired-rtp-stream-id
+a=extmap:2 http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time
+a=extmap:3 http://www.ietf.org/id/draft-holmer-rmcat-transport-wide-cc-extensions-01
+a=extmap:8 http://tools.ietf.org/html/draft-ietf-avtext-framemarking-07
+a=extmap:13 urn:3gpp:video-orientation
+a=extmap:14 urn:ietf:params:rtp-hdrext:toffset
+a=setup:active
+a=mid:1
+a=recvonly
+a=ice-ufrag:5btb67wh404fhofp
+a=ice-pwd:ywugz0pi9xpky18ybdn5odyv2qqh7id7
+a=candidate:udpcandidate 1 udp 1076558079 167.172.168.55 41531 typ host
+a=candidate:tcpcandidate 1 tcp 1076302079 167.172.168.55 47229 typ host tcptype passive
+a=end-of-candidates
+a=ice-options:renomination
+a=rtcp-mux
+a=rtcp-rsize
+a=rid:r0 recv
+a=rid:r1 recv
+a=rid:r2 recv
+a=simulcast:recv r0;r1;r2
+
+[TRACE] PeerConnection::SetRemoteDescription()
+[TRACE] PeerConnection::GetFuture()
+[TRACE] PeerConnection::OnSignalingChange()
+[DEBUG] PeerConnection::OnSignalingChange() | [newState:stable]
+[TRACE] Handler::OnIceConnectionChange()
+[TRACE] Transport::OnConnectionStateChange()
+[INFO] Broadcaster::OnConnectionStateChange() [connectionState:checking]
+[TRACE] Handler::OnIceConnectionChange()
+[TRACE] Transport::OnConnectionStateChange()
+[INFO] Broadcaster::OnConnectionStateChange() [connectionState:connected]
+[TRACE] Handler::OnIceConnectionChange()
+[TRACE] Transport::OnConnectionStateChange()
+[INFO] Broadcaster::OnConnectionStateChange() [connectionState:completed]
+[TRACE] PeerConnection::OnIceGatheringChange()
+[DEBUG] PeerConnection::OnIceGatheringChange() | [newState:complete]
+[TRACE] PeerConnection::OnSuccess()
+[TRACE] ortc::validateRtpParameters()
+[TRACE] ortc::validateRtpCodecParameters()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtcpFeedback()
+[TRACE] ortc::validateRtpCodecParameters()
+[TRACE] ortc::validateRtpHeaderExtensionParameters()
+[TRACE] ortc::validateRtpHeaderExtensionParameters()
+[TRACE] ortc::validateRtpHeaderExtensionParameters()
+[TRACE] ortc::validateRtpHeaderExtensionParameters()
+[TRACE] ortc::validateRtpHeaderExtensionParameters()
+[TRACE] ortc::validateRtpHeaderExtensionParameters()
+[TRACE] ortc::validateRtpHeaderExtensionParameters()
+[TRACE] ortc::validateRtpHeaderExtensionParameters()
+[TRACE] ortc::validateRtpEncodingParameters()
+[TRACE] ortc::validateRtpEncodingParameters()
+[TRACE] ortc::validateRtpEncodingParameters()
+[TRACE] ortc::validateRtcpParameters()
+[INFO] Broadcaster::OnProduce()
+[TRACE] Producer::Producer()
+[TRACE] Producer::GetId()
+[INFO] press Ctrl+C or Cmd+C to leave...
+[INFO] interrupt signal (2) received
+[INFO] Broadcaster::Stop()
+[INFO] leaving!

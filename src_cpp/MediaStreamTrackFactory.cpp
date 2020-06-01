@@ -2,20 +2,24 @@
 
 #include <iostream>
 
-#include "MediaStreamTrackFactory.hpp"
+#include "RtAudioDeviceModule.hpp"
 #include "MediaSoupClientErrors.hpp"
+#include "MediaStreamTrackFactory.hpp"
+#include "fakegenerators/fake_audio_capture_module.h"
+#include "fakegenerators/fake_periodic_video_track_source.h"
+#include "fakegenerators/frame_generator_capturer_video_track_source.h"
+#include "system_wrappers/include/clock.h"
 #include "api/audio_codecs/builtin_audio_decoder_factory.h"
 #include "api/audio_codecs/builtin_audio_encoder_factory.h"
 #include "api/create_peerconnection_factory.h"
 #include "api/video_codecs/builtin_video_decoder_factory.h"
 #include "api/video_codecs/builtin_video_encoder_factory.h"
-#include "fakegenerators/fake_audio_capture_module.h"
-#include "fakegenerators/fake_periodic_video_track_source.h"
-#include "fakegenerators/frame_generator_capturer_video_track_source.h"
-#include "system_wrappers/include/clock.h"
 
+#include "modules/audio_device/mac/audio_device_mac.h"
 
 using namespace mediasoupclient;
+
+bool useFake = true;
 
 static rtc::scoped_refptr<webrtc::PeerConnectionFactoryInterface> factory;
 
@@ -43,17 +47,22 @@ static void createFactory()
 
 	webrtc::PeerConnectionInterface::RTCConfiguration config;
 
+
 	auto fakeAudioCaptureModule = FakeAudioCaptureModule::Create();
 	if (!fakeAudioCaptureModule)
 	{
 		MSC_THROW_INVALID_STATE_ERROR("audio capture module creation errored");
 	}
 
+  auto rtAudioCaptureModule = RTAudioDeviceModule::Create();
+
+	auto macAudioDevice = AudioDeviceMac::Create();
+
 	factory = webrtc::CreatePeerConnectionFactory(
 	  networkThread,
 	  workerThread,
 	  signalingThread,
-	  fakeAudioCaptureModule,
+    macAudioDevice,
 	  webrtc::CreateBuiltinAudioEncoderFactory(),
 	  webrtc::CreateBuiltinAudioDecoderFactory(),
 	  webrtc::CreateBuiltinVideoEncoderFactory(),
@@ -74,7 +83,12 @@ rtc::scoped_refptr<webrtc::AudioTrackInterface> createAudioTrack(const std::stri
 		createFactory();
 
 	cricket::AudioOptions options;
-	options.highpass_filter = false;
+  options.auto_gain_control = false;
+	options.audio_jitter_buffer_max_packets = 0;
+  options.audio_jitter_buffer_fast_accelerate = false;
+	options.noise_suppression = false;
+	options.highpass_filter   = false;
+	options.typing_detection = false;
 
 	rtc::scoped_refptr<webrtc::AudioSourceInterface> source = factory->CreateAudioSource(options);
 
@@ -87,11 +101,10 @@ rtc::scoped_refptr<webrtc::VideoTrackInterface> createVideoTrack(const std::stri
 	if (!factory)
 		createFactory();
 
-	auto video_track_source = new rtc::RefCountedObject<webrtc::FakePeriodicVideoTrackSource>(
-			false /* remote */);
+	auto video_track_source =
+	  new rtc::RefCountedObject<webrtc::FakePeriodicVideoTrackSource>(false /* remote */);
 
-	return factory->CreateVideoTrack(
-			rtc::CreateRandomUuid(), video_track_source);
+	return factory->CreateVideoTrack(rtc::CreateRandomUuid(), video_track_source);
 }
 
 rtc::scoped_refptr<webrtc::VideoTrackInterface> createSquaresVideoTrack(const std::string& label)
@@ -100,13 +113,13 @@ rtc::scoped_refptr<webrtc::VideoTrackInterface> createSquaresVideoTrack(const st
 		createFactory();
 
 	std::cout << "[INFO] getting frame generator" << std::endl;
-	auto video_track_source_ = new rtc::RefCountedObject<webrtc::FrameGeneratorCapturerVideoTrackSource>(
-		webrtc::FrameGeneratorCapturerVideoTrackSource::Config(), 
-		webrtc::Clock::GetRealTimeClock(),
-		false);
+	auto video_track_source_ =
+	  new rtc::RefCountedObject<webrtc::FrameGeneratorCapturerVideoTrackSource>(
+	    webrtc::FrameGeneratorCapturerVideoTrackSource::Config(),
+	    webrtc::Clock::GetRealTimeClock(),
+	    false);
 	video_track_source_->Start();
 
 	std::cout << "[INFO] creating video track" << std::endl;
-	return factory->CreateVideoTrack(
-			rtc::CreateRandomUuid(), video_track_source_);
+	return factory->CreateVideoTrack(rtc::CreateRandomUuid(), video_track_source_);
 }

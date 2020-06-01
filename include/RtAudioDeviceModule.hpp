@@ -1,24 +1,5 @@
-/*
- *  Copyright 2012 The WebRTC project authors. All Rights Reserved.
- *
- *  Use of this source code is governed by a BSD-style license
- *  that can be found in the LICENSE file in the root of the source
- *  tree. An additional intellectual property rights grant can be found
- *  in the file PATENTS.  All contributing project authors may
- *  be found in the AUTHORS file in the root of the source tree.
- */
-
-// This class implements an AudioCaptureModule that can be used to detect if
-// audio is being received properly if it is fed by another AudioCaptureModule
-// in some arbitrary audio pipeline where they are connected. It does not play
-// out or record any audio so it does not need access to any hardware and can
-// therefore be used in the gtest testing framework.
-
-// Note P postfix of a function indicates that it should only be called by the
-// processing thread.
-
-#ifndef PC_TEST_FAKE_AUDIO_CAPTURE_MODULE_H_
-#define PC_TEST_FAKE_AUDIO_CAPTURE_MODULE_H_
+#ifndef RT_AUDIO_DEVICE_MODULE_H_
+#define RT_AUDIO_DEVICE_MODULE_H_
 
 #include <memory>
 
@@ -31,9 +12,9 @@ namespace rtc {
 class Thread;
 }  // namespace rtc
 
-class FakeAudioCaptureModule : public webrtc::AudioDeviceModule,
+class RTAudioDeviceModule : public webrtc::AudioDeviceModule,
                                public rtc::MessageHandler {
- public:
+public:
   typedef uint8_t Sample;
 
   // The value for the following constants have been derived by running VoE
@@ -41,19 +22,19 @@ class FakeAudioCaptureModule : public webrtc::AudioDeviceModule,
   static const size_t kNumberSamples = 440;
   static const size_t kNumberBytesPerSample = sizeof(Sample);
 
-  // Creates a FakeAudioCaptureModule or returns NULL on failure.
-  static rtc::scoped_refptr<FakeAudioCaptureModule> Create();
+  // Creates a RTAudioDeviceModule or returns NULL on failure.
+  static rtc::scoped_refptr<RTAudioDeviceModule> Create();
 
   // Returns the number of frames that have been successfully pulled by the
   // instance. Note that correctly detecting success can only be done if the
-  // pulled frame was generated/pushed from a FakeAudioCaptureModule.
+  // pulled frame was generated/pushed from a RTAudioDeviceModule.
   int frames_received() const;
 
   int32_t ActiveAudioLayer(AudioLayer* audio_layer) const override;
 
   // Note: Calling this method from a callback may result in deadlock.
   int32_t RegisterAudioCallback(
-      webrtc::AudioTransport* audio_callback) override;
+    webrtc::AudioTransport* audio_callback) override;
 
   int32_t Init() override;
   int32_t Terminate() override;
@@ -145,19 +126,19 @@ class FakeAudioCaptureModule : public webrtc::AudioDeviceModule,
   // The following function is inherited from rtc::MessageHandler.
   void OnMessage(rtc::Message* msg) override;
 
- protected:
+protected:
   // The constructor is protected because the class needs to be created as a
   // reference counted object (for memory managment reasons). It could be
   // exposed in which case the burden of proper instantiation would be put on
-  // the creator of a FakeAudioCaptureModule instance. To create an instance of
+  // the creator of a RTAudioDeviceModule instance. To create an instance of
   // this class use the Create(..) API.
-  FakeAudioCaptureModule();
+  RTAudioDeviceModule();
   // The destructor is protected because it is reference counted and should not
   // be deleted directly.
-  virtual ~FakeAudioCaptureModule();
+  virtual ~RTAudioDeviceModule();
 
- private:
-  // Initializes the state of the FakeAudioCaptureModule. This API is called on
+private:
+  // Initializes the state of the RTAudioDeviceModule. This API is called on
   // creation by the Create() API.
   bool Initialize();
   // SetBuffer() sets all samples in send_buffer_ to |value|.
@@ -225,4 +206,5 @@ class FakeAudioCaptureModule : public webrtc::AudioDeviceModule,
   rtc::CriticalSection crit_callback_;
 };
 
-#endif  // PC_TEST_FAKE_AUDIO_CAPTURE_MODULE_H_
+#endif  // RT_AUDIO_DEVICE_MODULE_H_
+

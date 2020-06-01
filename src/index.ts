@@ -19,5 +19,11 @@ firebase
             .then((snapshot) => snapshot.val() as DatabaseRouter);   // Very quick and dirty :P
         const device: Device = new Device(router, user);
         device.connect();
+        setTimeout(() => {
+            device.setSendAudio(true);
+        }, 3000);
+        setTimeout(() => {
+            device.setSendVideo(true);
+        }, 20000);
     })
     .catch((error) => console.error(error));

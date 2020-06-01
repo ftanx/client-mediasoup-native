@@ -21,6 +21,7 @@ target_sources(${PROJECT_NAME} PRIVATE
         src_cpp/DigitalStageClient.cpp
         src_cpp/addon.cc
         src_cpp/MediaStreamTrackFactory.cpp
+        src_cpp/RtAudioDeviceModule.cpp
         src_cpp/fakegenerators/fake_audio_capture_module.cc
         src_cpp/fakegenerators/fake_frame_source.cc
         src_cpp/fakegenerators/frame_generator_capturer.cc
